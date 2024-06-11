@@ -1,47 +1,10 @@
+@extends('master')
+@section('content')
 
-<!doctype html>
-<html lang="en" data-layout="vertical" data-sidebar="dark" data-sidebar-size="lg" data-preloader="disable" data-theme="default" data-topbar="light" data-bs-theme="light">
+  <!-- Begin page -->
+  <div id="layout-wrapper">
 
-
-
-<!-- Mirrored from themesbrand.com/steex/layouts/dashboard-analytics.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 12 Jun 2023 02:56:46 GMT -->
-<head>
-
-    <meta charset="utf-8">
-    <title>Fashion-Hub - Admin & Dashboard</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="Minimal Admin & Dashboard Template" name="description">
-    <meta content="Themesbrand" name="author">
-    <!-- App favicon -->
-    <link rel="shortcut icon" href="{{asset('steex/layouts/assets/images/favicon.ico')}}">
-
-    <!-- Fonts css load -->
-    <link rel="preconnect" href="https://fonts.googleapis.com/">
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link id="fontsLink" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
-
-    <!-- jsvectormap css -->
-    <link href="{{ asset('steex/layouts/assets/libs/jsvectormap/css/jsvectormap.min.css')}}" rel="stylesheet" type="text/css">
-
-    <!-- Layout config Js -->
-    <script src="{{asset('steex/layouts/assets/js/layout.js/')}}"></script>
-    <!-- Bootstrap Css -->
-    <link href="{{ asset('steex/layouts/assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
-    <!-- Icons Css -->
-    <link href="{{ asset('steex/layouts/assets/css/icons.min.css')}}" rel="stylesheet" type="text/css">
-    <!-- App Css-->
-    <link href="{{asset('steex/layouts/assets/css/app.min.css') }}" rel="stylesheet" type="text/css">
-    <!-- custom Css-->
-    <link href="{{asset('steex/layouts/assets/css/custom.min.css') }}" rel="stylesheet" type="text/css">
-
-</head>
-
-<body>
-
-    <!-- Begin page -->
-    <div id="layout-wrapper">
-
-        <!-- ========== App Menu ========== -->
+    <!-- ========== App Menu ========== -->
 <div class="app-menu navbar-menu">
     <!-- LOGO -->
     <div class="navbar-brand-box">
@@ -78,7 +41,7 @@
                     <a class="nav-link menu-link collapsed" href="#sidebarDashboards" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
                         <i class="ph-gauge"></i> <span data-key="t-dashboards">Dashboards</span>
                     </a>
-                    <div class="collapse menu-dropdown" id="sidebarDashboards">
+                    {{-- <div class="collapse menu-dropdown" id="sidebarDashboards">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a href="dashboard-analytics.html" class="nav-link" data-key="t-analytics"> Analytics </a>
@@ -96,32 +59,29 @@
                                 <a href="dashboard-real-estate.html" class="nav-link" data-key="t-real-estate"> Real Estate </a>
                             </li>
                         </ul>
-                    </div>
+                    </div> --}}
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link menu-link collapsed" href="#sidebarLayouts" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarLayouts">
-                        <i class="ph-layout"></i> <span data-key="t-layouts">Layouts</span> <span class="badge badge-pill bg-danger" data-key="t-hot">Hot</span>
+                        <i class="ph-layout"></i> <span data-key="t-layouts">Users Previlage & Permission</span> <span class="badge badge-pill bg-danger" data-key="t-hot">Hot</span>
                     </a>
                     <div class="collapse menu-dropdown" id="sidebarLayouts">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="layouts-horizontal.html" target="_blank" class="nav-link" data-key="t-horizontal">Horizontal</a>
+                                <a href="layouts-horizontal.html" target="_blank" class="nav-link" data-key="t-horizontal">Users</a>
                             </li>
                             <li class="nav-item">
-                                <a href="layouts-detached.html" target="_blank" class="nav-link" data-key="t-detached">Detached</a>
+                                <a href="layouts-detached.html" target="_blank" class="nav-link" data-key="t-detached">Rows</a>
                             </li>
                             <li class="nav-item">
-                                <a href="layouts-two-column.html" target="_blank" class="nav-link" data-key="t-two-column">Two Column</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="layouts-vertical-hovered.html" target="_blank" class="nav-link" data-key="t-hovered">Hovered</a>
+                                <a href="layouts-two-column.html" target="_blank" class="nav-link" data-key="t-two-column">Permission</a>
                             </li>
                         </ul>
                     </div>
                 </li>
 
-                <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-apps">Apps</span></li>
+                {{-- <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-apps">Apps</span></li>
 
                 <li class="nav-item">
                     <a href="apps-calendar.html" class="nav-link menu-link"> <i class="ph-calendar"></i> <span data-key="t-calendar">Calendar</span> </a>
@@ -133,27 +93,27 @@
 
                 <li class="nav-item">
                     <a href="apps-email.html" class="nav-link menu-link"> <i class="ph-envelope"></i> <span data-key="t-email">Email</span> </a>
-                </li>
+                </li> --}}
 
                 <li class="nav-item">
                     <a href="#sidebarEcommerce" class="nav-link menu-link collapsed" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarEcommerce">
-                        <i class="ph-storefront"></i> <span data-key="t-ecommerce">Ecommerce</span>
+                        <i class="ph-storefront"></i> <span data-key="t-ecommerce">Basic Settings</span>
                     </a>
                     <div class="collapse menu-dropdown" id="sidebarEcommerce">
                         <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a href="apps-ecommerce-products.html" class="nav-link" data-key="t-products">Products</a>
+                            </li> --}}
+                            <li class="nav-item">
+                                <a href="apps-ecommerce-products-grid.html" class="nav-link" data-key="t-products-grid">Styles</a>
                             </li>
                             <li class="nav-item">
-                                <a href="apps-ecommerce-products-grid.html" class="nav-link" data-key="t-products-grid">Products Grid</a>
+                                <a href="apps-ecommerce-product-details.html" class="nav-link" data-key="t-product-Details">Styles Parameters</a>
                             </li>
                             <li class="nav-item">
-                                <a href="apps-ecommerce-product-details.html" class="nav-link" data-key="t-product-Details">Product Details</a>
+                                <a href="apps-ecommerce-add-product.html" class="nav-link" data-key="t-create-product">Projects</a>
                             </li>
-                            <li class="nav-item">
-                                <a href="apps-ecommerce-add-product.html" class="nav-link" data-key="t-create-product">Create Product</a>
-                            </li>
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a href="apps-ecommerce-orders.html" class="nav-link" data-key="t-orders">Orders</a>
                             </li>
                             <li class="nav-item">
@@ -173,33 +133,45 @@
                             </li>
                             <li class="nav-item">
                                 <a href="apps-ecommerce-seller-overview.html" class="nav-link" data-key="t-seller-overview">Seller Overview</a>
-                            </li>
+                            </li> --}}
                         </ul>
                     </div>
                 </li>
 
-                <li class="nav-item">
-                    <a href="apps-file-manager.html" class="nav-link menu-link"> <i class="ph-folder-open"></i> <span data-key="t-file-manager">File Manager</span> </a>
-                </li>
+                {{-- <li class="nav-item">
+                    <a href="apps-file-manager.html" class="nav-link menu-link"> <i class="ph-folder-open"></i> <span data-key="t-file-manager">Apps</span> </a>
+                </li> --}}
 
                 <li class="nav-item">
                     <a href="#sidebarLearning" class="nav-link menu-link  collapsed" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarLearning">
-                        <i class="ph-graduation-cap"></i> <span data-key="t-learning">Learning</span>
+                        <i class="ph-graduation-cap"></i> <span data-key="t-learning">Apps</span>
                     </a>
                     <div class="collapse menu-dropdown" id="sidebarLearning">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="#sidebarCourses" class="nav-link" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarCourses" data-key="t-courses"> Courses </a>
+                                <a href="#sidebarCourses" class="nav-link" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarCourses" data-key="t-courses"> Clients </a>
                                 <div class="collapse menu-dropdown" id="sidebarCourses">
+                                    <li class="nav-item">
+                                        <a href="#sidebarCourses" class="nav-link" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarCourses" data-key="t-courses"> Styles </a>
+                                        <div class="collapse menu-dropdown" id="sidebarCourses">
+                                            <li class="nav-item">
+                                                <a href="#sidebarCourses" class="nav-link" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarCourses" data-key="t-courses"> All Measurements</a>
+                                                <div class="collapse menu-dropdown" id="sidebarCourses">
+                                                    <li class="nav-item">
+                                                        <a href="#sidebarCourses" class="nav-link" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarCourses" data-key="t-courses"> Contacts </a>
+                                                        <div class="collapse menu-dropdown" id="sidebarCourses">
+                                                            <li class="nav-item">
+                                                                <a href="#sidebarCourses" class="nav-link" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarCourses" data-key="t-courses"> Projects </a>
+                                                                <div class="collapse menu-dropdown" id="sidebarCourses">
                                     <ul class="nav nav-sm flex-column">
                                         <li class="nav-item">
-                                            <a href="apps-learning-list.html" class="nav-link" data-key="t-list-view">List View</a>
+                                            <a href="apps-learning-list.html" class="nav-link" data-key="t-list-view">All Measurements</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="apps-learning-grid.html" class="nav-link" data-key="t-grid-view">Grid View</a>
+                                            <a href="apps-learning-grid.html" class="nav-link" data-key="t-grid-view">Contacts</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="apps-learning-category.html" class="nav-link" data-key="t-category">Category</a>
+                                            <a href="apps-learning-category.html" class="nav-link" data-key="t-category">Project</a>
                                         </li>
                                         <li class="nav-item">
                                             <a href="apps-learning-overview.html" class="nav-link" data-key="t-overview">Overview</a>
@@ -248,7 +220,7 @@
 
                 <li class="nav-item">
                     <a href="#sidebarInvoices" class="nav-link menu-link collapsed" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarInvoices">
-                        <i class="ph-file-text"></i> <span data-key="t-invoices">Invoices</span>
+                        <i class="ph-file-text"></i> <span data-key="t-invoices">POS</span>
                     </a>
                     <div class="collapse menu-dropdown" id="sidebarInvoices">
                         <ul class="nav nav-sm flex-column">
@@ -2174,20 +2146,6 @@
             </div>
             <!-- End Page-content -->
 
-            <footer class="footer">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <script>document.write(new Date().getFullYear())</script> © Fashion-Hub.
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="text-sm-end d-none d-sm-block">
-                                Designed & Developed @ Quidriod Systems....
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer>
         </div>
         <!-- end main content-->
 
@@ -2951,3 +2909,4 @@
 
 <!-- Mirrored from themesbrand.com/steex/layouts/dashboard-analytics.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 12 Jun 2023 02:56:51 GMT -->
 </html>
+@endsection
