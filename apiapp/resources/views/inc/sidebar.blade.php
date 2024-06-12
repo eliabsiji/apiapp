@@ -99,7 +99,7 @@
                                 <a href="apps-ecommerce-products.html" class="nav-link" data-key="t-products">Products</a>
                             </li> --}}
                             <li class="nav-item">
-                                <a href="apps-ecommerce-products-grid.html" class="nav-link" data-key="t-products-grid">Styles Settings</a>
+                                <a href="{{ route ('style')}}" class="nav-link" data-key="t-products-grid">Styles Settings</a>
                             </li>
                             <li class="nav-item">
                                 <a href="apps-ecommerce-product-details.html" class="nav-link" data-key="t-product-Details">Styles Parameters Settings</a>
