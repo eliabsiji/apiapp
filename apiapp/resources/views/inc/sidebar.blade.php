@@ -89,48 +89,6 @@
                     <a href="apps-email.html" class="nav-link menu-link"> <i class="ph-envelope"></i> <span data-key="t-email">Email</span> </a>
                 </li> --}}
 
-                <li class="nav-item">
-                    <a href="#sidebarEcommerce" class="nav-link menu-link collapsed" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarEcommerce">
-                        <i class="ph-storefront"></i> <span data-key="t-ecommerce">Basic Settings</span>
-                    </a>
-                    <div class="collapse menu-dropdown" id="sidebarEcommerce">
-                        <ul class="nav nav-sm flex-column">
-                            {{-- <li class="nav-item">
-                                <a href="apps-ecommerce-products.html" class="nav-link" data-key="t-products">Products</a>
-                            </li> --}}
-                            <li class="nav-item">
-                                <a href="{{ route ('style')}}" class="nav-link" data-key="t-products-grid">Styles Settings</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="apps-ecommerce-product-details.html" class="nav-link" data-key="t-product-Details">Styles Parameters Settings</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="apps-ecommerce-add-product.html" class="nav-link" data-key="t-create-product">Projects Settings</a>
-                            </li>
-                            {{-- <li class="nav-item">
-                                <a href="apps-ecommerce-orders.html" class="nav-link" data-key="t-orders">Orders</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="apps-ecommerce-order-overview.html" class="nav-link" data-key="t-order-overview">Order Overview</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="apps-ecommerce-customers.html" class="nav-link" data-key="t-customers">Customers</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="apps-ecommerce-cart.html" class="nav-link" data-key="t-shopping-cart">Shopping Cart</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="apps-ecommerce-checkout.html" class="nav-link" data-key="t-checkout">Checkout</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="apps-ecommerce-sellers.html" class="nav-link" data-key="t-sellers">Sellers</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="apps-ecommerce-seller-overview.html" class="nav-link" data-key="t-seller-overview">Seller Overview</a>
-                            </li> --}}
-                        </ul>
-                    </div>
-                </li>
 
                 {{-- <li class="nav-item">
                     <a href="apps-file-manager.html" class="nav-link menu-link"> <i class="ph-folder-open"></i> <span data-key="t-file-manager">Apps</span> </a>
@@ -225,6 +183,49 @@
                         </ul>
                     </div>
                 </li>
+                <li class="nav-item">
+                    <a href="#sidebarEcommerce" class="nav-link menu-link collapsed" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarEcommerce">
+                        <i class="ph-storefront"></i> <span data-key="t-ecommerce">Basic Settings</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarEcommerce">
+                        <ul class="nav nav-sm flex-column">
+                            {{-- <li class="nav-item">
+                                <a href="apps-ecommerce-products.html" class="nav-link" data-key="t-products">Products</a>
+                            </li> --}}
+                            <li class="nav-item">
+                                <a href="{{ route ('style')}}" class="nav-link" data-key="t-products-grid">Styles Settings</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="apps-ecommerce-product-details.html" class="nav-link" data-key="t-product-Details">Styles Parameters Settings</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="apps-ecommerce-add-product.html" class="nav-link" data-key="t-create-product">Projects Settings</a>
+                            </li>
+                            {{-- <li class="nav-item">
+                                <a href="apps-ecommerce-orders.html" class="nav-link" data-key="t-orders">Orders</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="apps-ecommerce-order-overview.html" class="nav-link" data-key="t-order-overview">Order Overview</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="apps-ecommerce-customers.html" class="nav-link" data-key="t-customers">Customers</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="apps-ecommerce-cart.html" class="nav-link" data-key="t-shopping-cart">Shopping Cart</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="apps-ecommerce-checkout.html" class="nav-link" data-key="t-checkout">Checkout</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="apps-ecommerce-sellers.html" class="nav-link" data-key="t-sellers">Sellers</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="apps-ecommerce-seller-overview.html" class="nav-link" data-key="t-seller-overview">Seller Overview</a>
+                            </li> --}}
+                        </ul>
+                    </div>
+                </li>
+
 {{--
                 <li class="nav-item">
                     <a href="#sidebarTickets" class="nav-link menu-link collapsed" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarTickets">
