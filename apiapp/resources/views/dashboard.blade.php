@@ -7,7 +7,7 @@
 <head>
 
     <meta charset="utf-8">
-    <title>Analytics | Steex - Admin & Dashboard Template</title>
+    <title>Fashion_Hub - Admin & Dashboard Template</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Minimal Admin & Dashboard Template" name="description">
     <meta content="Themesbrand" name="author">
@@ -171,7 +171,7 @@
                                         </div>
                                     </div>
                                     <p class="fs-md text-muted mb-0">Avg. Visit Duration</p>
-                        
+
                                     <div class="row mt-4 align-items-end">
                                         <div class="col-lg-6">
                                             <h3 class="mb-4"><span class="counter-value" data-target="01.47">0</span>sec </h3>
@@ -199,7 +199,7 @@
                                         </div>
                                     </div>
                                     <p class="fs-md text-muted mb-0">Impressions</p>
-                        
+
                                     <div class="row mt-4 align-items-end">
                                         <div class="col-lg-6">
                                             <h3 class="mb-4"><span class="counter-value" data-target="1647">0</span></h3>
@@ -227,7 +227,7 @@
                                         </div>
                                     </div>
                                     <p class="fs-md text-muted mb-0">Total Views</p>
-                        
+
                                     <div class="row mt-4 align-items-end">
                                         <div class="col-lg-6">
                                             <h3 class="mb-4"><span class="counter-value" data-target="291.32">0</span>k </h3>
@@ -318,7 +318,7 @@
                                                     <td>
                                                         <img src=" {{ asset('steex/layouts/assets/images/brands/chrome.png')}}" alt="" class="avatar-xxs">
                                                         <span class="ms-1 browsers">Google Chrome</span>
-                                                    </td> 
+                                                    </td>
                                                     <td class="click text-center">
                                                         640
                                                     </td>
@@ -702,7 +702,7 @@
                                                 <div class="flex-shrink-0">
                                                     28%
                                                 </div>
-                                            </div> 
+                                            </div>
                                         </li>
                                         <li>
                                             <div class="d-flex align-items-center">
@@ -817,7 +817,7 @@
     <script src=" {{ asset('steex/layouts/assets/libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <script src=" {{ asset('steex/layouts/assets/libs/simplebar/simplebar.min.js')}}"></script>
     <script src=" {{ asset('steex/layouts/assets/js/plugins.js')}}"></script>
-    
+
     <!-- apexcharts -->
     <script src=" {{ asset('steex/layouts/assets/libs/apexcharts/apexcharts.min.js')}}"></script>
 

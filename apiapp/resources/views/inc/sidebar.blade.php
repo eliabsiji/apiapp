@@ -58,7 +58,7 @@
 
                 <li class="nav-item">
                     <a class="nav-link menu-link collapsed" href="#sidebarLayouts" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarLayouts">
-                        <i class="ph-layout"></i> <span data-key="t-layouts">Users Previlage & Permission</span> <span class="badge badge-pill bg-danger" data-key="t-hot">Hot</span>
+                        <i class="ph-layout"></i> <span data-key="t-layouts">Users Previlage & Permission</span> 
                     </a>
                     <div class="collapse menu-dropdown" id="sidebarLayouts">
                         <ul class="nav nav-sm flex-column">
@@ -99,13 +99,13 @@
                                 <a href="apps-ecommerce-products.html" class="nav-link" data-key="t-products">Products</a>
                             </li> --}}
                             <li class="nav-item">
-                                <a href="apps-ecommerce-products-grid.html" class="nav-link" data-key="t-products-grid">Styles</a>
+                                <a href="apps-ecommerce-products-grid.html" class="nav-link" data-key="t-products-grid">Styles Settings</a>
                             </li>
                             <li class="nav-item">
-                                <a href="apps-ecommerce-product-details.html" class="nav-link" data-key="t-product-Details">Styles Parameters</a>
+                                <a href="apps-ecommerce-product-details.html" class="nav-link" data-key="t-product-Details">Styles Parameters Settings</a>
                             </li>
                             <li class="nav-item">
-                                <a href="apps-ecommerce-add-product.html" class="nav-link" data-key="t-create-product">Projects</a>
+                                <a href="apps-ecommerce-add-product.html" class="nav-link" data-key="t-create-product">Projects Settings</a>
                             </li>
                             {{-- <li class="nav-item">
                                 <a href="apps-ecommerce-orders.html" class="nav-link" data-key="t-orders">Orders</a>
@@ -167,12 +167,12 @@
                                         <li class="nav-item">
                                             <a href="apps-learning-category.html" class="nav-link" data-key="t-category">Project</a>
                                         </li>
-                                        <li class="nav-item">
+                                        {{-- <li class="nav-item">
                                             <a href="apps-learning-overview.html" class="nav-link" data-key="t-overview">Overview</a>
                                         </li>
                                         <li class="nav-item">
                                             <a href="apps-learning-create.html" class="nav-link" data-key="t-create-course">Create Course</a>
-                                        </li>
+                                        </li> --}}
                                     </ul>
                                 </div>
                             </li>
@@ -199,12 +199,7 @@
                                         <li class="nav-item">
                                             <a href="apps-instructors-grid.html" class="nav-link" data-key="t-grid-view">Grid View</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a href="apps-instructors-overview.html" class="nav-link" data-key="t-overview">Overview</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="apps-instructors-create.html" class="nav-link" data-key="t-create-instructors">Create Instructor</a>
-                                        </li>
+
                                     </ul>
                                 </div>
                             </li>
@@ -230,7 +225,7 @@
                         </ul>
                     </div>
                 </li>
-
+{{--
                 <li class="nav-item">
                     <a href="#sidebarTickets" class="nav-link menu-link collapsed" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarTickets">
                         <i class="ph-ticket"></i> <span data-key="t-support-tickets">Support Tickets</span>
@@ -766,7 +761,7 @@
                                                         <a href="#" class="nav-link" data-key="t-level-3.2"> Level 3.2
                                                         </a>
                                                     </li>
-                                                </ul>
+                                                </ul> --}}
                                             </div>
                                         </li>
                                     </ul>
