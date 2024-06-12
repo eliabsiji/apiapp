@@ -58,7 +58,7 @@
 
                 <li class="nav-item">
                     <a class="nav-link menu-link collapsed" href="#sidebarLayouts" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarLayouts">
-                        <i class="ph-layout"></i> <span data-key="t-layouts">Users Previlage & Permission</span> 
+                        <i class="ph-layout"></i> <span data-key="t-layouts">Users Previlage & Permission</span>
                     </a>
                     <div class="collapse menu-dropdown" id="sidebarLayouts">
                         <ul class="nav nav-sm flex-column">
@@ -157,7 +157,7 @@
                                                             <li class="nav-item">
                                                                 <a href="#sidebarCourses" class="nav-link" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarCourses" data-key="t-courses"> Projects </a>
                                                                 <div class="collapse menu-dropdown" id="sidebarCourses">
-                                    <ul class="nav nav-sm flex-column">
+                                    {{-- <ul class="nav nav-sm flex-column">
                                         <li class="nav-item">
                                             <a href="apps-learning-list.html" class="nav-link" data-key="t-list-view">All Measurements</a>
                                         </li>
@@ -167,16 +167,16 @@
                                         <li class="nav-item">
                                             <a href="apps-learning-category.html" class="nav-link" data-key="t-category">Project</a>
                                         </li>
-                                        {{-- <li class="nav-item">
+                                        <li class="nav-item">
                                             <a href="apps-learning-overview.html" class="nav-link" data-key="t-overview">Overview</a>
                                         </li>
                                         <li class="nav-item">
                                             <a href="apps-learning-create.html" class="nav-link" data-key="t-create-course">Create Course</a>
-                                        </li> --}}
-                                    </ul>
+                                        </li>
+                                    </ul> --}}
                                 </div>
                             </li>
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a href="#sidebarStudent" class="nav-link" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarStudent" data-key="t-students"> Students </a>
                                 <div class="collapse menu-dropdown" id="sidebarStudent">
                                     <ul class="nav nav-sm flex-column">
@@ -188,9 +188,9 @@
                                         </li>
                                     </ul>
                                 </div>
-                            </li>
+                            </li> --}}
                             <li class="nav-item">
-                                <a href="#sidebarInstructors" class="nav-link" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarInstructors" data-key="t-instructors"> Instructors </a>
+                                {{-- <a href="#sidebarInstructors" class="nav-link" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarInstructors" data-key="t-instructors"> Instructors </a> --}}
                                 <div class="collapse menu-dropdown" id="sidebarInstructors">
                                     <ul class="nav nav-sm flex-column">
                                         <li class="nav-item">
