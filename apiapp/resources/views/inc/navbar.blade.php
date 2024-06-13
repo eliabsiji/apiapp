@@ -81,7 +81,7 @@
                                 <!-- item -->
                                 <a href="javascript:void(0);" class="dropdown-item notify-item py-2">
                                     <div class="d-flex">
-                                        <img src={{ asset('steex/layouts/assets/images/users/avatar-2.jpg')}}" class="me-3 rounded-circle avatar-xs" alt="user-pic">
+                                        <img src="{{ asset('steex/layouts/assets/images/users/avatar-2.jpg')}}" class="me-3 rounded-circle avatar-xs" alt="user-pic">
                                         <div class="flex-1">
                                             <h6 class="m-0">Angela Bernier</h6>
                                             <span class="fs-11 mb-0 text-muted">Manager</span>
@@ -608,8 +608,8 @@
                         <span class="d-flex align-items-center">
                             <img class="rounded-circle header-profile-user" src="{{ asset('steex/layouts/assets/images/users/32/avatar-1.jpg')}}" alt="Header Avatar">
                             <span class="text-start ms-xl-2">
-                                <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">Richard Marshall</span>
-                                <span class="d-none d-xl-block ms-1 fs-sm user-name-sub-text">Founder</span>
+                                <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">Qudriod Systems</span>
+                                <span class="d-none d-xl-block ms-1 fs-sm user-name-sub-text">Developer</span>
                             </span>
                         </span>
                     </button>
