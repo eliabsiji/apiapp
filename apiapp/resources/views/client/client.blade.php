@@ -175,39 +175,39 @@
         <!-- end row -->
 
         <div class="modal fade" id="showModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-dialog modal-`                                                        dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header bg-light p-3">
                         <h5 class="modal-title" id="exampleModalLabel">Add Client</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
                     </div>
-                    <form class="tablelist-form">
+                    <form action="{{ route('registerclient')}}" class="tablelist-form" method="Post">
                         <div class="modal-body">
 
 
                             <div class="mb-3">
                                 <label for="customername-field" class="form-label">Full Name</label>
-                                <input type="text" id="customername-field" class="form-control" placeholder="Enter Name" required >
+                                <input type="text" id="customername-field" name="fullname" class="form-control" placeholder="Enter Name" required >
                             </div>
 
                             <div class="mb-3">
                                 <label for="email-field" class="form-label">Email</label>
-                                <input type="email" id="email-field" class="form-control" placeholder="Enter Email" required >
+                                <input type="email" id="email-field" name="email" class="form-control" placeholder="Enter Email" required >
                             </div>
 
                             <div class="mb-3">
                                 <label for="phone-field" class="form-label">Phone</label>
-                                <input type="number" id="phone-field" class="form-control" placeholder="Enter Phone no." required >
+                                <input type="number" id="phone-field" name="phone" class="form-control" placeholder="Enter Phone no." required >
                             </div>
 
                             <div class="mb-3">
                                 <label for="date-field" class="form-label">Address</label>
-                                <input type="text" id="date-field" class="form-control" placeholder="Enter Address" required >
+                                <input type="text" id="date-field" name="address" class="form-control" placeholder="Enter Address" required >
                             </div>
 
                             <div>
                                 <label for="status-field" class="form-label">Gender</label>
-                                <select class="form-control" data-trigger name="status-field" id="status-field">
+                                <select class="form-control" data-trigger name="gender" id="status-field">
                                     <option value="">Please Select </option>
                                     <option value="Active">Male</option>
                                     <option value="Block">Female</option>
@@ -218,7 +218,7 @@
                             <div class="hstack gap-2 justify-content-end">
                                 <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-success" id="add-btn">Add Client</button>
-                                <!-- <button type="button" class="btn btn-success" id="edit-btn">Update</button> -->
+                                <button type="button" class="btn btn-success" id="edit-btn">Update</button>
                             </div>
                         </div>
                     </form>

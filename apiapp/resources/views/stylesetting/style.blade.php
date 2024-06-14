@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0">Create-Style</h4>
+                    <h4 class="mb-sm-0">Add-Style</h4>
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
@@ -57,7 +57,10 @@
                                                 </div>
                                             </th>
                                             <th class="sort" data-sort="customer_name">Style Name</th>
-                                            <th class="sort" data-sort="email">Date Created</th>
+                                            <th class="sort" data-sort="email">Description</th>
+
+                                            <th class="sort" data-sort="status">Date Created</th>
+                                            <th class="sort" data-sort="status">Deadline</th>
                                             <th class="sort" data-sort="action">Action</th>
                                         </tr>
                                     </thead>
@@ -157,9 +160,7 @@
                                     </tbody>
                                 </table>
 
-
                             </div>
-
 
 
                         </div>
@@ -182,22 +183,26 @@
                     <form class="tablelist-form">
                         <div class="modal-body">
 
-                            <div class="mb-3" id="modal-id" style="display: none;">
-                                <label for="id-field" class="form-label">ID</label>
-                                <input type="text" id="id-field" class="form-control" placeholder="ID" readonly >
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="customername-field" class="form-label">Style Name</label>
+                         <div class="mb-3">
+                          <label for="customername-field" class="form-label">Style Name</label>
                                 <input type="text" id="customername-field" class="form-control" placeholder="Enter Name" required >
                             </div>
 
+                            <div class="mb-3">
+                                <label for="email-field" class="form-label">Description</label>
+                              <textarea id="email-field" class="form-control" placeholder="The Descripction of the Style"> </textarea>
+                            </div>
 
+                            <div>
+                                <label for="status-field" class="form-label">Deadline</label>
+                                <input type="date" class="form-control" data-trigger  placeholder="Enter Date" required>
+                            </div>
+                        </div>
                         <div class="modal-footer">
                             <div class="hstack gap-2 justify-content-end">
                                 <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-success" id="add-btn">Add Style</button>
-                                <!-- <button type="button" class="btn btn-success" id="edit-btn">Update</button> -->
+                                <button type="button" class="btn btn-success" id="edit-btn">Update</button>
                             </div>
                         </div>
                     </form>

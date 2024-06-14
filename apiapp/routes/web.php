@@ -21,6 +21,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/dashboard',[DashboardController::class, 'index'])->name('dashboard');
 Route::get('/style',[StyleController::class, 'style'])->name('style');
 Route::get('/client',[ClientController::class, 'index'])->name('client');
+// Route::get('/register',[RegisterController::class, 'register'])->name('register');
+// Route::post('/submitregister',[RegisterController::class, 'submit'])->name('submitregister');
+Route::post('/registerclient',[ClientController::class, 'saveclient'])->name('registerclient');
 Route::get('/styleparameter',[StyleparameterController::class, 'index'])->name('styleparameter');
 Route::get('/project',[ProjectController::class, 'index'])->name('project');
 
