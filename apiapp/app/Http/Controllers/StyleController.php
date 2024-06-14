@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\StlyeModel;
-use App\Models\StyleModel;
+
 use Illuminate\Http\Request;
 
 class StyleController extends Controller
