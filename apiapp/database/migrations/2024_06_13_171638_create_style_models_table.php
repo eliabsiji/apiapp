@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('style_models', function (Blueprint $table) {
                 $table->id();
                 $table->string("user_id")->nullable();
-                $table->string("name")->nullable();
+                $table->string("style")->nullable();
+                $table->string("description")->nullable();
                 $table->timestamps();
             });
         }

@@ -56,9 +56,9 @@
                                                     <input class="form-check-input" type="checkbox" id="checkAll" value="option">
                                                 </div>
                                             </th>
+                                            <th class="sort" data-sort="email">SN</th>
                                             <th class="sort" data-sort="customer_name">Project Name</th>
                                             <th class="sort" data-sort="email">Description</th>
-
                                             <th class="sort" data-sort="status">Date Created</th>
                                             <th class="sort" data-sort="status">Deadline</th>
                                             <th class="sort" data-sort="action">Action</th>
@@ -194,7 +194,7 @@
                             </div>
 
                             <div>
-                                <label for="status-field" class="form-label">Deadline</label>
+                                <label for="status-field" class="form-label">Dead-line</label>
                                 <input type="date" class="form-control" data-trigger  placeholder="Enter Date" required>
                             </div>
                         </div>
@@ -202,7 +202,7 @@
                             <div class="hstack gap-2 justify-content-end">
                                 <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-success" id="add-btn">Add Project</button>
-                                <!-- <button type="button" class="btn btn-success" id="edit-btn">Update</button> -->
+                                <button type="button" class="btn btn-success" id="edit-btn">Update</button>
                             </div>
                         </div>
                     </form>

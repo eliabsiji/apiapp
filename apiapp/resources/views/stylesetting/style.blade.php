@@ -3,6 +3,19 @@
 <div class="page-content">
     <div class="container-fluid">
 
+            @if (\Session::has('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Congrats! </strong>{{ \Session::get('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close"></button>
+            </div>
+        @endif
+        @if (\Session::has('danger'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>OOPS! </strong>{{ \Session::get('danger') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close"></button>
+        </div>
+    @endif
+
         <!-- start page title -->
         <div class="row">
             <div class="col-12">
@@ -56,9 +69,9 @@
                                                     <input class="form-check-input" type="checkbox" id="checkAll" value="option">
                                                 </div>
                                             </th>
+                                            <th class="sort" data-sort="email">SN</th>
                                             <th class="sort" data-sort="customer_name">Style Name</th>
                                             <th class="sort" data-sort="email">Description</th>
-
                                             <th class="sort" data-sort="status">Date Created</th>
                                             <th class="sort" data-sort="status">Deadline</th>
                                             <th class="sort" data-sort="action">Action</th>
@@ -180,22 +193,17 @@
                         <h5 class="modal-title" id="exampleModalLabel">Add Style</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
                     </div>
-                    <form class="tablelist-form">
+                    <form action="{{ route('registerstyle')}}" class="tablelist-form" method="Post" >
+                        @csrf
                         <div class="modal-body">
 
                          <div class="mb-3">
                           <label for="customername-field" class="form-label">Style Name</label>
-                                <input type="text" id="customername-field" class="form-control" placeholder="Enter Name" required >
+                                <input type="text" id="customername-field" name="style" class="form-control" placeholder="Enter Name" required >
                             </div>
-
                             <div class="mb-3">
                                 <label for="email-field" class="form-label">Description</label>
-                              <textarea id="email-field" class="form-control" placeholder="The Descripction of the Style"> </textarea>
-                            </div>
-
-                            <div>
-                                <label for="status-field" class="form-label">Deadline</label>
-                                <input type="date" class="form-control" data-trigger  placeholder="Enter Date" required>
+                              <textarea id="email-field" class="form-control" name="description" placeholder="The Descripction of the Project"> </textarea>
                             </div>
                         </div>
                         <div class="modal-footer">

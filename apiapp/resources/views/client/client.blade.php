@@ -2,6 +2,18 @@
 @section('content')
 <div class="page-content">
     <div class="container-fluid">
+        @if (\Session::has('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Congrats! </strong>{{ \Session::get('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close"></button>
+        </div>
+    @endif
+    @if (\Session::has('danger'))
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>OOPS! </strong>{{ \Session::get('danger') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close"></button>
+    </div>
+@endif
 
         <!-- start page title -->
         <div class="row">
@@ -56,6 +68,7 @@
                                                     <input class="form-check-input" type="checkbox" id="checkAll" value="option">
                                                 </div>
                                             </th>
+                                            <th class="sort" data-sort="email">SN</th>
                                             <th class="sort" data-sort="customer_name">Client Name</th>
                                             <th class="sort" data-sort="email">Email</th>
                                             <th class="sort" data-sort="phone">Phone</th>
@@ -182,6 +195,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
                     </div>
                     <form action="{{ route('registerclient')}}" class="tablelist-form" method="Post">
+                        @csrf
                         <div class="modal-body">
 
 
@@ -197,7 +211,7 @@
 
                             <div class="mb-3">
                                 <label for="phone-field" class="form-label">Phone</label>
-                                <input type="number" id="phone-field" name="phone" class="form-control" placeholder="Enter Phone no." required >
+                                <input type="number" id="phone-field" name="phonenumber" class="form-control" placeholder="Enter Phone no." required >
                             </div>
 
                             <div class="mb-3">
@@ -208,9 +222,9 @@
                             <div>
                                 <label for="status-field" class="form-label">Gender</label>
                                 <select class="form-control" data-trigger name="gender" id="status-field">
-                                    <option value="">Please Select </option>
-                                    <option value="Active">Male</option>
-                                    <option value="Block">Female</option>
+                                    <option>Please Select </option>
+                                    <option>Male</option>
+                                    <option>Female</option>
                                 </select>
                             </div>
                         </div>

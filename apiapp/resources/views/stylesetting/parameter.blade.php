@@ -56,8 +56,8 @@
                                                     <input class="form-check-input" type="checkbox" id="checkAll" value="option">
                                                 </div>
                                             </th>
+                                            <th class="sort" data-sort="email">SN</th>
                                             <th class="sort" data-sort="customer_name">Style Parameter</th>
-
                                             <th class="sort" data-sort="status">Date Created</th>
                                             <th class="sort" data-sort="action">Action</th>
                                         </tr>
