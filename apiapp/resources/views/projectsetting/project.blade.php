@@ -2,6 +2,18 @@
 @section('content')
 <div class="page-content">
     <div class="container-fluid">
+        @if (\Session::has('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Congrats! </strong>{{ \Session::get('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close"></button>
+        </div>
+    @endif
+    @if (\Session::has('danger'))
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>OOPS! </strong>{{ \Session::get('danger') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close"></button>
+    </div>
+@endif
 
         <!-- start page title -->
         <div class="row">
@@ -180,22 +192,23 @@
                         <h5 class="modal-title" id="exampleModalLabel">Add Project</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
                     </div>
-                    <form class="tablelist-form">
+                    <form action="{{ route('registerproject')}}" class="tablelist-form" method="Post">
+                        @csrf
                         <div class="modal-body">
 
                          <div class="mb-3">
                           <label for="customername-field" class="form-label">Project Name</label>
-                                <input type="text" id="customername-field" class="form-control" placeholder="Enter Name" required >
+                                <input type="text" id="customername-field" name="projectname" class="form-control" placeholder="Enter Name" required >
                             </div>
 
                             <div class="mb-3">
                                 <label for="email-field" class="form-label">Description</label>
-                              <textarea id="email-field" class="form-control" placeholder="The Descripction of the Project"> </textarea>
+                              <textarea id="email-field" class="form-control" name="description" placeholder="The Descripction of the Project"> </textarea>
                             </div>
 
                             <div>
                                 <label for="status-field" class="form-label">Dead-line</label>
-                                <input type="date" class="form-control" data-trigger  placeholder="Enter Date" required>
+                                <input type="date" class="form-control" name="deadline" data-trigger  placeholder="Enter Date" required>
                             </div>
                         </div>
                         <div class="modal-footer">

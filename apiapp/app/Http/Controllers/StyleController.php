@@ -2,14 +2,18 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
-use App\Models\StlyeModel;
-
+use App\Models\StyleModel;
 use Illuminate\Http\Request;
 
 class StyleController extends Controller
 {
-    public function style(){
-        return view('stylesetting.style');
+    public function index(){
+
+        $style = User::leftjoin('style_models','style_models.user_id','=','users.id')
+                    ->get(['users.id as id','style_models.style as style',
+                            'style_models.description as description',
+                           'style_models.created_at as datecreated']);
+        return view('stylesetting.style')->with('style',$style);
     }
 
 
