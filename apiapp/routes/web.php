@@ -20,9 +20,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/dashboard',[DashboardController::class, 'index'])->name('dashboard');
 // Style Settings
-Route::get('/style',[StyleController::class, 'index'])->name('style');
+Route::get('/stylesettings',[StyleController::class, 'index'])->name('style');
 Route::post('/registerstyle',[StyleController::class, 'savestyle'])->name('registerstyle');
-Route::get('/styleparameter',[StyleparameterController::class, 'index'])->name('styleparameter');
+Route::get('/parametersettings',[StyleparameterController::class, 'index'])->name('styleparameter');
 Route::post('/registerparameter',[StyleParameterController::class, 'saveparameter'])->name('registerparameter');
 
 // Clients

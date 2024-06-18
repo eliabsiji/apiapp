@@ -9,7 +9,7 @@ class StyleController extends Controller
 {
     public function index(){
 
-        $style = User::leftjoin('style_models','style_models.user_id','=','users.id')
+        $style = User::rightjoin('style_models','style_models.user_id','=','users.id')
                     ->get(['users.id as id','style_models.style as style',
                             'style_models.description as description',
                            'style_models.created_at as datecreated']);

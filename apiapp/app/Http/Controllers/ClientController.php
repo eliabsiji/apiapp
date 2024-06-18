@@ -10,7 +10,7 @@ class ClientController extends Controller
 
     public function index(){
 
-        $client = User::leftjoin('client','client.user_id','=','users.id')
+        $client = User::rightjoin('client','client.user_id','=','users.id')
                     ->get(['users.id as id','client.fullname as fullname',
                             'client.email as email','client.phonenumber as phonenumber',
                            'client.gender as gender','client.address as address',

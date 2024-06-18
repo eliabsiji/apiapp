@@ -19,7 +19,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0">Create-Style-Parameter</h4>
+                    <h4 class="mb-sm-0">Parameter Management</h4>
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
@@ -68,9 +68,9 @@
                                                     <input class="form-check-input" type="checkbox" id="checkAll" value="option">
                                                 </div>
                                             </th> --}}
-                                            <th class="sort" data-sort="email">SN</th>
-                                            <th class="sort" data-sort="customer_name">Style Parameter</th>
-                                            <th class="sort" data-sort="customer_name">Descrpition</th>
+                                            <th class="sort" data-sort="sn">SN</th>
+                                            <th class="sort" data-sort="customer_parameter">Parameter</th>
+                                            <th class="sort" data-sort="customer_description">Descrpition</th>
                                             <th class="sort" data-sort="status">Date Created</th>
                                             <th class="sort" data-sort="action">Action</th>
                                         </tr>
@@ -93,9 +93,9 @@
                                         @foreach ($style as $style)
 
                                         <tr>
-                                            <td>{{ $count }}</td>
-                                            <td>{{ $style->parameter }}</td>
-                                            <td>{{ $style->description }}</td>
+                                            <td class="sn">{{ $count }}</td>
+                                            <td class="customer_parameter">{{ $style->parameter }}</td>
+                                            <td class="customer_description">{{ $style->description }}</td>
                                             <td>{{ $style->datecreated }}</td>
                                             <td>
                                                 <div class="d-flex gap-2">
@@ -116,7 +116,7 @@
                                   </table>
 
                             </div>
-                        
+
 
 
 
@@ -148,7 +148,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="customername-field" class="form-label">Descrption</label>
-                                <input type="text" id="customername-field" name="description" class="form-control" placeholder="Enter Name" required >
+                                <textarea id="email-field" class="form-control" name="description" placeholder="The Descripction of the Project"> </textarea>
                             </div>
 
 
@@ -156,7 +156,7 @@
                             <div class="hstack gap-2 justify-content-end">
                                 <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-success" id="add-btn">Add Parameter</button>
-                                <button type="button" class="btn btn-success" id="edit-btn">Update</button>
+                                {{-- <button type="button" class="btn btn-success" id="edit-btn">Update</button> --}}
                             </div>
                         </div>
                     </form>

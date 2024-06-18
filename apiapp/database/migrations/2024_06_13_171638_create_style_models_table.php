@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('style_models', function (Blueprint $table) {
+        Schema::create('style_model', function (Blueprint $table) {
                 $table->id();
                 $table->string("user_id")->nullable();
                 $table->string("style")->nullable();
