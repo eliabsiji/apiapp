@@ -33,6 +33,6 @@ Route::post('/registerclient',[ClientController::class, 'saveclient'])->name('re
 // Project
 Route::get('/project',[ProjectController::class, 'index'])->name('project');
 Route::post('/registerproject',[ProjectController::class, 'saveproject'])->name('registerproject');
-// Route::get('/register',[RegisterController::class, 'register'])->name('register');
+Route::get('/register',[::class, 'register'])->name('register');
 // Route::post('/submitregister',[RegisterController::class, 'submit'])->name('submitregister');
 
