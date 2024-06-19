@@ -11,6 +11,7 @@ class StyleModel extends Model
     protected $fillable = [
         'user_id',
         'style',
+        'img',
         'description',
     ];
 }

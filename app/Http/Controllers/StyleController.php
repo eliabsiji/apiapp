@@ -10,7 +10,7 @@ class StyleController extends Controller
     public function index(){
 
         $style = User::rightjoin('style_models','style_models.user_id','=','users.id')
-                    ->get(['users.id as id','style_models.style as style',
+                    ->get(['users.id as id','style_models.style as style','style_models.img as img',
                             'style_models.description as description',
                            'style_models.created_at as datecreated']);
         return view('stylesetting.style')->with('style',$style);
@@ -23,6 +23,7 @@ class StyleController extends Controller
          StyleModel::create([
         'user_id'=> $user->id,
         'style'=>$request->style,
+        'img'=>$request->img,
         'description'=>$request->description,
 
     ]);

@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\controllers\StyleController;
 use App\Http\controllers\ClientController;
 use App\Http\controllers\StyleparameterController;
+use App\Http\controllers\AddparameterController;
 use App\Http\controllers\projectController;
 
 
@@ -23,6 +24,7 @@ Route::get('/dashboard',[DashboardController::class, 'index'])->name('dashboard'
 Route::get('/stylesettings',[StyleController::class, 'index'])->name('style');
 Route::post('/registerstyle',[StyleController::class, 'savestyle'])->name('registerstyle');
 Route::get('/parametersettings',[StyleparameterController::class, 'index'])->name('parameter');
+Route::get('/addparameters',[AddparameterController::class, 'index'])->name('addparameter');
 Route::post('/registerparameter',[StyleParameterController::class, 'saveparameter'])->name('registerparameter');
 Route::get('/stylesparametersettings',[StyleparameterController::class, 'index'])->name('styleparameter');
 Route::post('/registerparameter',[StyleParameterController::class, 'saveparameter'])->name('registerstyleparameter');

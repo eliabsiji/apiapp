@@ -70,6 +70,7 @@
                                             </th> --}}
                                             <th class="sort" data-sort="email">SN</th>
                                             <th class="sort" data-sort="customer_name">Style Name</th>
+                                            <th class="sort" data-sort="customer_name">Style Image</th>
                                             <th class="sort" data-sort="email">Description</th>
                                             <th class="sort" data-sort="status">Date Created</th>
                                             <th class="sort" data-sort="action">Action</th>
@@ -86,6 +87,7 @@
                                     <tr>
                                         <td>{{ $count }}</td>
                                         <td>{{ $style->style }}</td>
+                                        <td>{{ $style->img }}</td>
                                         <td>{{ $style->description }}</td>
                                         <td>{{ $style->datecreated }}</td>
                                         <td>
@@ -134,6 +136,15 @@
                           <label for="customername-field" class="form-label">Style Name</label>
                                 <input type="text" id="customername-field" name="style" class="form-control" placeholder="Enter Name" required >
                             </div>
+                            <div class="mb-3">
+                                <div><label for="customername-field" class="form-label">Style Image</label></div>
+                                <input type="file"  id="email-field"  name="img" class="form-control" >
+                                {{-- <div class="input-group col-xs-12">
+                                  <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                                  <span class="hstack gap-2 justify-content-end">
+                                    <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                                  </span> --}}
+                                </div>
                             <div class="mb-3">
                                 <label for="email-field" class="form-label">Description</label>
                               <textarea id="email-field" class="form-control" name="description" placeholder="The Descripction of the Project"> </textarea>
