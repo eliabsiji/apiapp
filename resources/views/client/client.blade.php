@@ -70,10 +70,10 @@
                                             </th> --}}
                                             <th class="sort" data-sort="email">SN</th>
                                             <th class="sort" data-sort="customer_name">Client Name</th>
-                                            <th class="sort" data-sort="email">Email</th>
                                             <th class="sort" data-sort="phone">Phone</th>
                                             <th class="sort" data-sort="date">Gender</th>
                                             <th class="sort" data-sort="date">Address</th>
+                                            <th class="sort" data-sort="email">Styles</th>
                                             <th class="sort" data-sort="status">Date Registerd</th>
                                             <th class="sort" data-sort="action">Action</th>
                                         </tr>
@@ -88,10 +88,10 @@
                                                 <tr>
                                                     <td>{{ $count }}</td>
                                                     <td>{{ $client->fullname }}</td>
-                                                    <td>{{ $client->email }}</td>
                                                     <td>{{ $client->phonenumber }}</td>
                                                     <td>{{ $client->gender }}</td>
                                                     <td>{{ $client->address }}</td>
+                                                    <td><a href="{{ route('clientstyle')}}" class="btn btn-success">Select-Style</a></td>
                                                     <td>{{ $client->datecreated }}</td>
                                                     <td>
                                                         <div class="d-flex gap-2">
@@ -175,7 +175,7 @@
                             <div class="hstack gap-2 justify-content-end">
                                 <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-success" id="add-btn">Add Client</button>
-                                <button type="button" class="btn btn-success" id="edit-btn">Update</button>
+                                {{-- <button type="button" class="btn btn-success" id="edit-btn">Update</button> --}}
                             </div>
                         </div>
                     </form>

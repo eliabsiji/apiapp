@@ -2,18 +2,19 @@
 @section('content')
 <div class="page-content">
     <div class="container-fluid">
-        @if (\Session::has('success'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>Congrats! </strong>{{ \Session::get('success') }}
+
+            @if (\Session::has('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Congrats! </strong>{{ \Session::get('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close"></button>
+            </div>
+        @endif
+        @if (\Session::has('danger'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>OOPS! </strong>{{ \Session::get('danger') }}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close"></button>
         </div>
     @endif
-    @if (\Session::has('danger'))
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>OOPS! </strong>{{ \Session::get('danger') }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close"></button>
-    </div>
-@endif
 
         <!-- start page title -->
         <div class="row">
@@ -46,7 +47,6 @@
                                 <div class="col-sm-auto">
                                     <div>
                                         <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#showModal"><i class="ri-add-line align-bottom me-1"></i> Add</button>
-
                                     </div>
                                 </div>
                                 <div class="col-sm">
@@ -68,56 +68,45 @@
                                                     <input class="form-check-input" type="checkbox" id="checkAll" value="option">
                                                 </div>
                                             </th> --}}
-                                            <th class="sort" data-sort="sn">SN</th>
-                                            <th class="sort" data-sort="customer_parameter">Parameter</th>
-                                            <th class="sort" data-sort="customer_description">Descrpition</th>
+                                            <th class="sort" data-sort="email">SN</th>
+                                            <th class="sort" data-sort="customer_name">Parameter</th>
+                                            <th class="sort" data-sort="email">Description</th>
                                             <th class="sort" data-sort="status">Date Created</th>
                                             <th class="sort" data-sort="action">Action</th>
                                         </tr>
                                     </thead>
-                                    {{-- <tbody class="list form-check-all">
-                                        <tr>
-                                            <th scope="row">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" name="chk_child" value="option1">
-                                                </div>
-                                            </th>
+                                </thead>
+                                <tbody>
+                                    @php
+                                         $count = 1;
+                                    @endphp
 
-                                        </thead> --}}
-                                    </thead>
-                                    <tbody>
-                                        @php
-                                             $count = 1;
-                                        @endphp
+                                    @foreach ($style as $style)
 
-                                        @foreach ($style as $style)
-
-                                        <tr>
-                                            <td class="sn">{{ $count }}</td>
-                                            <td class="customer_parameter">{{ $style->parameter }}</td>
-                                            <td class="customer_description">{{ $style->description }}</td>
-                                            <td>{{ $style->datecreated }}</td>
-                                            <td>
-                                                <div class="d-flex gap-2">
-                                                <div class="edit">
-                                                    <button class="btn btn-sm btn-success edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Edit</button>
-                                                </div>
-                                                <div class="remove">
-                                                    <button class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">Remove</button>
-                                                </div>
-                                              </td>
-                                            </tr>
-                                       </tr>
-                                       @php
-                                             $count++;
-                                        @endphp
-                                        @endforeach
-                                    </tbody>
-                                  </table>
+                                    <tr>
+                                        <td>{{ $count }}</td>
+                                        <td>{{ $style->parameter }}</td>
+                                        <td>{{ $style->description }}</td>
+                                        <td>{{ $style->datecreated }}</td>
+                                        <td>
+                                            <div class="d-flex gap-2">
+                                            <div class="edit">
+                                                <button class="btn btn-sm btn-success edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Edit</button>
+                                            </div>
+                                            <div class="remove">
+                                                <button class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">Remove</button>
+                                            </div>
+                                          </td>
+                                        </tr>
+                                   </tr>
+                                   @php
+                                         $count++;
+                                    @endphp
+                                    @endforeach
+                                </tbody>
+                              </table>
 
                             </div>
-
-
 
 
                         </div>
@@ -137,21 +126,20 @@
                         <h5 class="modal-title" id="exampleModalLabel">Add Parameter</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
                     </div>
-                    <form action="{{ route('registerparameter')}}" class="tablelist-form" method="Post">
+                    <form action="{{ route('createparameter')}}" class="tablelist-form" method="Post" >
                         @csrf
                         <div class="modal-body">
 
-
-                            <div class="mb-3">
-                                <label for="customername-field" class="form-label">Style-Pararmeter</label>
+                         <div class="mb-3">
+                          <label for="customername-field" class="form-label">Parameter Name</label>
                                 <input type="text" id="customername-field" name="parameter" class="form-control" placeholder="Enter Name" required >
                             </div>
+
                             <div class="mb-3">
-                                <label for="customername-field" class="form-label">Descrption</label>
-                                <textarea id="email-field" class="form-control" name="description" placeholder="The Descripction of the Project"> </textarea>
+                                <label for="email-field" class="form-label">Description</label>
+                              <textarea id="email-field" class="form-control" name="description" placeholder="The Descripction of the Project"> </textarea>
                             </div>
-
-
+                        </div>
                         <div class="modal-footer">
                             <div class="hstack gap-2 justify-content-end">
                                 <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>

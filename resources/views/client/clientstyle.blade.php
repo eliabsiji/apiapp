@@ -20,12 +20,18 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0">Style Management</h4>
+                    {{-- @foreach ($client as $client)
+                    <h4 class="mb-sm-0">Clientstyle Style For {{$client->fullname}}</h4>
+                    @endforeach --}}
+                    <h4 class="mb-sm-0">Clientstyle  </h4>
+
+
+
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="javascript: void(0);">Tables</a></li>
-                            <li class="breadcrumb-item active">Style-List</li>
+                            <li class="breadcrumb-item active">Clientstyle -List</li>
                         </ol>
                     </div>
 
@@ -45,9 +51,7 @@
                         <div id="customerList">
                             <div class="row g-4 mb-3">
                                 <div class="col-sm-auto">
-                                    <div>
-                                        <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#showModal"><i class="ri-add-line align-bottom me-1"></i> Add</button>
-                                    </div>
+
                                 </div>
                                 <div class="col-sm">
                                     <div class="d-flex justify-content-sm-end">
@@ -71,7 +75,7 @@
                                             <th class="sort" data-sort="email">SN</th>
                                             <th class="sort" data-sort="customer_name">Style Name</th>
                                             <th class="sort" data-sort="customer_name">Style Image</th>
-                                            <th class="sort" data-sort="email">Description</th>
+                                            <th class="sort" data-sort="email">Measurement</th>
                                             <th class="sort" data-sort="status">Date Created</th>
                                             <th class="sort" data-sort="action">Action</th>
                                         </tr>
@@ -82,14 +86,14 @@
                                          $count = 1;
                                     @endphp
 
-                                    @foreach ($style as $style)
+                                    @foreach ($style as $clientstyle)
 
                                     <tr>
                                         <td>{{ $count }}</td>
-                                        <td>{{ $style->style }}</td>
-                                        <td>{{ $style->img }}</td>
-                                        <td>{{ $style->description }}</td>
-                                        <td>{{ $style->datecreated }}</td>
+                                        <td>{{ $clientstyle->style }}</td>
+                                        <td>{{ $clientstyle->img }}</td>
+                                        <td><a href="#" class="btn btn-success">Take-Measurement</a></td>
+                                        <td>{{ $clientstyle->datecreated }}</td>
                                         <td>
                                             <div class="d-flex gap-2">
                                             <div class="edit">

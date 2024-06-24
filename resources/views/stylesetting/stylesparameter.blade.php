@@ -44,10 +44,6 @@
                         <div id="customerList">
                             <div class="row g-4 mb-3">
                                 <div class="col-sm-auto">
-                                    <div>
-                                        <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#showModal"><i class="ri-add-line align-bottom me-1"></i> Add</button>
-
-                                    </div>
                                 </div>
                                 <div class="col-sm">
                                     <div class="d-flex justify-content-sm-end">
@@ -69,9 +65,11 @@
                                                 </div>
                                             </th> --}}
                                             <th class="sort" data-sort="sn">SN</th>
-                                            <th class="sort" data-sort="customer_parameter">Parameter</th>
-                                            <th class="sort" data-sort="customer_description">Descrpition</th>
+                                            <th class="sort" data-sort="customer_parameter">Style</th>
+                                            <th class="sort" data-sort="customer_description">Picture</th>
+                                            <th class="sort" data-sort="customer_description">Assign Parameter</th>
                                             <th class="sort" data-sort="status">Date Created</th>
+                                            <th class="sort" data-sort="status">Date Updated</th>
                                             <th class="sort" data-sort="action">Action</th>
                                         </tr>
                                     </thead>
@@ -90,13 +88,19 @@
                                              $count = 1;
                                         @endphp
 
-                                        @foreach ($style as $style)
+                                        @foreach ($styleparameter as $style)
 
                                         <tr>
                                             <td class="sn">{{ $count }}</td>
-                                            <td class="customer_parameter">{{ $style->parameter }}</td>
-                                            <td class="customer_description">{{ $style->description }}</td>
+                                            <td class="customer_parameter">{{ $style->style }}</td>
+                                            <td class="customer_parameter"><img src="{{ $style->img }}" alt="" class="rounded avatar-sm"> {{ $style->img }}</td>
+                                            <td class="customer_parameter">
+                                                <div class="edit">
+                                                    <a href="{{route('addparameters',$style->id)}}" class="btn btn-sm btn-success edit-item-btn">Add Parameter</a>
+                                                </div>
+                                            </td>
                                             <td>{{ $style->datecreated }}</td>
+                                            <td>{{ $style->dateupdated }}</td>
                                             <td>
                                                 <div class="d-flex gap-2">
                                                 <div class="edit">

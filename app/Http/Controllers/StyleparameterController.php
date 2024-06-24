@@ -2,31 +2,30 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
-use App\Models\StyleparameterModel;
+use App\Models\StyleModel;
+use App\Models\App_style_Model;
 use Illuminate\Http\Request;
+use App\Models\StyleparameterModel;
+use Illuminate\Support\Facades\Auth;
 
 class StyleparameterController extends Controller
 {
 
     public function index(){
 
-        $style = User::rightjoin('styleparameter_models','styleparameter_models.user_id','=','users.id')
-                    ->get(['users.id as id','styleparameter_models.parameter as parameter',
-                            'styleparameter_models.description as description',
-                           'styleparameter_models.created_at as datecreated']);
-        return view('stylesetting.stylesparameter')->with('style',$style);
+        $styleparameter = App_style_Model::where('user_id',Auth::user()->id)->leftjoin('users','app_style_models.user_id','=','users.id')
+                    ->get(['users.id as id','app_style_models.style as style',
+                            'app_style_models.img as img',
+                            'app_style_models.created_at as datecreated',
+                            'app_style_models.updated_at as dateupdated']);
+        return view('stylesetting.stylesparameter')->with('styleparameter',$styleparameter);
     }
 
-    public function saveparameter(Request $request){
-        $user = User::create([
-        ]);
-             StyleparameterModel::create([
-            'user_id'=> $user->id,
-            'parameter'=>$request->parameter,
-            'description'=>$request->description,
-
+    public function addstyleparameter(Request $request){
+        print_r($request->all());
+        StyleparameterModel::updateOrCreate([
 
         ]);
-        return back() ->with('success','You have succefully Registered parameter');
     }
+
 }
