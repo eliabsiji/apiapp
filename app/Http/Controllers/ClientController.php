@@ -2,19 +2,22 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use App\Models\StyleModel;
+use App\Models\App_style_Model;
 use App\Models\ClientModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ClientController extends Controller
 {
 
     public function index(){
 
-        $client = User::rightjoin('client','client.user_id','=','users.id')
-                    ->get(['users.id as id','client.fullname as fullname',
-                            'client.email as email','client.phonenumber as phonenumber',
-                           'client.gender as gender','client.address as address',
-                           'client.created_at as datecreated']);
+        $client = User::rightjoin('app_client','app_client.user_id','=','users.id')
+                    ->get(['users.id as id','app_client.fullname as fullname',
+                            'app_client.email as email','app_client.phonenumber as phonenumber',
+                           'app_client.gender as gender','app_client.address as address',
+                           'app_client.created_at as datecreated']);
         return view('client.client')->with('client',$client);
 
     }
@@ -23,13 +26,11 @@ class ClientController extends Controller
     $chkphone = ClientModel::where('phonenumber','=',$request->phonenumber)->exists();
     if($chkphone){
         return back() ->with('danger','Phone Number already registered');
-    }else{
-         $user = User::create([
 
-        ]);
+
     }
              ClientModel::create([
-            'user_id'=> $user->id,
+            'user_id'=> Auth::user()->id,
             'fullname'=>$request->fullname,
             'email'=>$request->email,
             'phonenumber'=>$request->phonenumber,
@@ -38,6 +39,17 @@ class ClientController extends Controller
         ]);
 
         return back() ->with('success','You have succefully Registered Client');
+  }
+
+  public function clientstyle(){
+
+    $style = App_style_Model::where('user_id',Auth::user()->id)
+    ->leftjoin('users','app_style_models.user_id','=','users.id')
+    ->get(['users.id as id','app_style_models.style as style', 'app_style_models.img as img',
+            'app_style_models.description as description',
+           'app_style_models.created_at as datecreated']);
+return view('client.clientstyle')->with('style',$style);
+
   }
 }
 

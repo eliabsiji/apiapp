@@ -91,7 +91,7 @@
                                                     <td>{{ $client->phonenumber }}</td>
                                                     <td>{{ $client->gender }}</td>
                                                     <td>{{ $client->address }}</td>
-                                                    <td><a href="#" class="btn btn-success">Select-Style</a></td>
+                                                    <td><a href="{{ route('clientstyle')}}" class="btn btn-success">Select-Style</a></td>
                                                     <td>{{ $client->datecreated }}</td>
                                                     <td>
                                                         <div class="d-flex gap-2">
@@ -175,7 +175,7 @@
                             <div class="hstack gap-2 justify-content-end">
                                 <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-success" id="add-btn">Add Client</button>
-                                <button type="button" class="btn btn-success" id="edit-btn">Update</button>
+                                {{-- <button type="button" class="btn btn-success" id="edit-btn">Update</button> --}}
                             </div>
                         </div>
                     </form>

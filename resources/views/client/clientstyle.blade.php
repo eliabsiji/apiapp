@@ -2,29 +2,36 @@
 @section('content')
 <div class="page-content">
     <div class="container-fluid">
-        @if (\Session::has('success'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>Congrats! </strong>{{ \Session::get('success') }}
+
+            @if (\Session::has('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Congrats! </strong>{{ \Session::get('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close"></button>
+            </div>
+        @endif
+        @if (\Session::has('danger'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>OOPS! </strong>{{ \Session::get('danger') }}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close"></button>
         </div>
     @endif
-    @if (\Session::has('danger'))
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>OOPS! </strong>{{ \Session::get('danger') }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close"></button>
-    </div>
-@endif
 
         <!-- start page title -->
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0">Parameter Management</h4>
+                    {{-- @foreach ($client as $client)
+                    <h4 class="mb-sm-0">Clientstyle Style For {{$client->fullname}}</h4>
+                    @endforeach --}}
+                    <h4 class="mb-sm-0">Clientstyle  </h4>
+
+
+
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="javascript: void(0);">Tables</a></li>
-                            <li class="breadcrumb-item active">Parameter-List</li>
+                            <li class="breadcrumb-item active">Clientstyle -List</li>
                         </ol>
                     </div>
 
@@ -44,6 +51,7 @@
                         <div id="customerList">
                             <div class="row g-4 mb-3">
                                 <div class="col-sm-auto">
+
                                 </div>
                                 <div class="col-sm">
                                     <div class="d-flex justify-content-sm-end">
@@ -64,64 +72,47 @@
                                                     <input class="form-check-input" type="checkbox" id="checkAll" value="option">
                                                 </div>
                                             </th> --}}
-                                            <th class="sort" data-sort="sn">SN</th>
-                                            <th class="sort" data-sort="customer_parameter">Style</th>
-                                            <th class="sort" data-sort="customer_description">Picture</th>
-                                            <th class="sort" data-sort="customer_description">Assign Parameter</th>
+                                            <th class="sort" data-sort="email">SN</th>
+                                            <th class="sort" data-sort="customer_name">Style Name</th>
+                                            <th class="sort" data-sort="customer_name">Style Image</th>
+                                            <th class="sort" data-sort="email">Measurement</th>
                                             <th class="sort" data-sort="status">Date Created</th>
-                                            <th class="sort" data-sort="status">Date Updated</th>
                                             <th class="sort" data-sort="action">Action</th>
                                         </tr>
                                     </thead>
-                                    {{-- <tbody class="list form-check-all">
-                                        <tr>
-                                            <th scope="row">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" name="chk_child" value="option1">
-                                                </div>
-                                            </th>
+                                </thead>
+                                <tbody>
+                                    @php
+                                         $count = 1;
+                                    @endphp
 
-                                        </thead> --}}
-                                    </thead>
-                                    <tbody>
-                                        @php
-                                             $count = 1;
-                                        @endphp
+                                    @foreach ($style as $clientstyle)
 
-                                        @foreach ($styleparameter as $style)
-
-                                        <tr>
-                                            <td class="sn">{{ $count }}</td>
-                                            <td class="customer_parameter">{{ $style->style }}</td>
-                                            <td class="customer_parameter"><img src="{{ $style->img }}" alt="" class="rounded avatar-sm"> {{ $style->img }}</td>
-                                            <td class="customer_parameter">
-                                                <div class="edit">
-                                                    <a href="{{route('addparameters',$style->id)}}" class="btn btn-sm btn-success edit-item-btn">Add Parameter</a>
-                                                </div>
-                                            </td>
-                                            <td>{{ $style->datecreated }}</td>
-                                            <td>{{ $style->dateupdated }}</td>
-                                            <td>
-                                                <div class="d-flex gap-2">
-                                                <div class="edit">
-                                                    <button class="btn btn-sm btn-success edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Edit</button>
-                                                </div>
-                                                <div class="remove">
-                                                    <button class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">Remove</button>
-                                                </div>
-                                              </td>
-                                            </tr>
-                                       </tr>
-                                       @php
-                                             $count++;
-                                        @endphp
-                                        @endforeach
-                                    </tbody>
-                                  </table>
+                                    <tr>
+                                        <td>{{ $count }}</td>
+                                        <td>{{ $clientstyle->style }}</td>
+                                        <td>{{ $clientstyle->img }}</td>
+                                        <td><a href="#" class="btn btn-success">Take-Measurement</a></td>
+                                        <td>{{ $clientstyle->datecreated }}</td>
+                                        <td>
+                                            <div class="d-flex gap-2">
+                                            <div class="edit">
+                                                <button class="btn btn-sm btn-success edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Edit</button>
+                                            </div>
+                                            <div class="remove">
+                                                <button class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">Remove</button>
+                                            </div>
+                                          </td>
+                                        </tr>
+                                   </tr>
+                                   @php
+                                         $count++;
+                                    @endphp
+                                    @endforeach
+                                </tbody>
+                              </table>
 
                             </div>
-
-
 
 
                         </div>
@@ -138,28 +129,35 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header bg-light p-3">
-                        <h5 class="modal-title" id="exampleModalLabel">Add Parameter</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Add Style</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
                     </div>
-                    <form action="{{ route('registerstyleparameter')}}" class="tablelist-form" method="Post">
+                    <form action="{{ route('registerstyle')}}" class="tablelist-form" method="Post" >
                         @csrf
                         <div class="modal-body">
 
-
-                            <div class="mb-3">
-                                <label for="customername-field" class="form-label">Style-Pararmeter</label>
-                                <input type="text" id="customername-field" name="parameter" class="form-control" placeholder="Enter Name" required >
+                         <div class="mb-3">
+                          <label for="customername-field" class="form-label">Style Name</label>
+                                <input type="text" id="customername-field" name="style" class="form-control" placeholder="Enter Name" required >
                             </div>
                             <div class="mb-3">
-                                <label for="customername-field" class="form-label">Descrption</label>
-                                <textarea id="email-field" class="form-control" name="description" placeholder="The Descripction of the Project"> </textarea>
+                                <div><label for="customername-field" class="form-label">Style Image</label></div>
+                                <input type="file"  id="email-field"  name="img" class="form-control" >
+                                {{-- <div class="input-group col-xs-12">
+                                  <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                                  <span class="hstack gap-2 justify-content-end">
+                                    <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                                  </span> --}}
+                                </div>
+                            <div class="mb-3">
+                                <label for="email-field" class="form-label">Description</label>
+                              <textarea id="email-field" class="form-control" name="description" placeholder="The Descripction of the Project"> </textarea>
                             </div>
-
-
+                        </div>
                         <div class="modal-footer">
                             <div class="hstack gap-2 justify-content-end">
                                 <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-success" id="add-btn">Add Parameter</button>
+                                <button type="submit" class="btn btn-success" id="add-btn">Add Style</button>
                                 {{-- <button type="button" class="btn btn-success" id="edit-btn">Update</button> --}}
                             </div>
                         </div>

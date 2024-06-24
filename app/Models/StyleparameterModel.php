@@ -8,10 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class StyleparameterModel extends Model
 {
     use HasFactory;
-
+    protected $table = 'app_styleparameter_models';
     protected $fillable = [
         'user_id',
-        'parameter',
+        'parameterid',
+        'styleid',
         'description',
     ];
 }

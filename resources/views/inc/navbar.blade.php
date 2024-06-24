@@ -608,7 +608,7 @@
                         <span class="d-flex align-items-center">
                             <img class="rounded-circle header-profile-user" src="{{ asset('steex/layouts/assets/images/users/32/avatar-1.jpg')}}" alt="Header Avatar">
                             <span class="text-start ms-xl-2">
-                                <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">Qudriod Systems</span>
+                                <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">{{Auth::user()->name}}</span>
                                 <span class="d-none d-xl-block ms-1 fs-sm user-name-sub-text">Developer</span>
                             </span>
                         </span>

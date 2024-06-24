@@ -11,11 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('styleparameter_models', function (Blueprint $table) {
+        Schema::create('app_measurement_models', function (Blueprint $table) {
             $table->id();
-            $table->string("user_id")->nullable();
-            $table->string("parameter")->nullable();
-            $table->string("description")->nullable();
             $table->timestamps();
         });
     }
@@ -25,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('styleparameter_models');
+        Schema::dropIfExists('app_measurement_models');
     }
 };

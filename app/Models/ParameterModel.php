@@ -5,16 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ProjectModel extends Model
+class ParameterModel extends Model
 {
     use HasFactory;
-
-    protected $table = 'app_project_models';
+    protected $table = 'app_parameter_models';
     protected $fillable = [
         'user_id',
-        'projectname',
+        'parameter',
         'description',
-        'deadline',
     ];
 }
-

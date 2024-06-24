@@ -7,12 +7,14 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0">Styles-Parameter</h4>
+                   @foreach ($styles as $style)
+                   <h4 class="mb-sm-0">{{$style->style}} Style</h4>
+                   @endforeach
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">Styles</a></li>
-                            <li class="breadcrumb-item active">Parameter</li>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">Basic Setting</a></li>
+                            <li class="breadcrumb-item active">Style Parameter</li>
                         </ol>
                     </div>
 
@@ -28,42 +30,62 @@
                         <div class="card-body">
                             <div class="row g-3">
                                 <div class="col-xxl-3">
-                                    {{-- <div class="search-box">
-                                        <input type="text" class="form-control search" placeholder="Search products, price etc...">
+                                    <div class="search-box">
+                                        <input type="text" class="form-control search" placeholder="Search Parameters...">
                                         <i class="ri-search-line search-icon"></i>
-                                    </div> --}}
-                                </div><!--end col-->
-                                <div class="col-xxl-2 col-sm-6">
-                                    <div>
-                                        <select class="form-control" id="idDiscount"  data-choices data-choices-search-false data-choices-removeItem>
-                                            <option value="all">Select Style</option>
-                                            <option value="50">50% or more</option>
-                                            <option value="40">40% or more</option>
-                                            <option value="30">30% or more</option>
-                                            <option value="20">20% or more</option>
-                                            <option value="10">10% or more</option>
-                                            <option value="0">Less than 10%</option>
-                                        </select>
                                     </div>
                                 </div><!--end col-->
-                                <div class="col-xxl-3 col-sm-6">
-                                   <!-- Inline Checkbox -->
-                                    <div class="form-check form-switch form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                                        <label class="form-check-label" for="inlineCheckbox1">Length</label>
+
+
+
+
+                            </div><!--end row-->
+                        </div>
+                    </div>
+                </div><!--end col-->
+            </div><!--end row-->
+
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row g-3">
+
+
+
+                            <div class="col-xxl-8 col-sm-8">
+
+                                <form action="{{ route('styleparameter.addstyleparameter')}}" class="tablelist-form" method="Post">
+                                    @csrf
+                                    <input type="hidden" name="userid" value="{{Auth::user()->id}}">
+                                    <input type="hidden" name="styleid" value="{{$style->id}}">
+
+                                   @foreach ($parameters as $parameter)
+
+                                   {{-- <input type="text" name="{{$parameter->id}}" value="{{$parameter->parameter}}" id=""> --}}
+                                    <!-- Inline Checkbox -->
+                                    <div class="form-check form-switch   form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="parameters[]" value="{{$parameter->id}}">
+                                        <label class="form-check-label" for="inlineCheckbox1">{{$parameter->parameter}}</label>
                                     </div>
-                                    <div class="form-check form-switch form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                                        <label class="form-check-label" for="inlineCheckbox2">Breadth</label>
-                                    </div>
-                                    <div class="form-check form-switch form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" >
-                                        <label class="form-check-label" for="inlineCheckbox3">curve</label>
-                                    </div>
-                                        <div class="d-flex flex-wrap align-items-start gap-2">
-                                            <button type="button" class="btn btn-primary add-btn" data-bs-toggle="modal" data-bs-target="#showModal"><i class="bi bi-plus-circle align-baseline me-1"></i> Add Parameters</button>
+                                  @endforeach
+
+
+
+
+                                        <div class="hstack gap-2 justify-content-end">
+
+                                            <button type="submit" class="btn btn-success" id="add-btn">Add Parameter</button>
+                                            {{-- <button type="button" class="btn btn-success" id="edit-btn">Update</button> --}}
                                         </div>
-                                </div><!--end col-->
+
+                                </form>
+
+
+                            </div><!--end col-->
+
+
 
                                 {{-- <div class="col-xxl-1 col-sm-6">
                                     <button type="button" class="btn btn-secondary w-100" onclick="filterData();"><i class="bi bi-funnel align-baseline me-1"></i> Filters</button>
@@ -73,6 +95,8 @@
                     </div>
                 </div><!--end col-->
             </div><!--end row-->
+
+
 
             <div class="row">
                 <div class="col-lg-12">
@@ -110,7 +134,7 @@
                                  $count = 1;
                             @endphp
 
-                            @foreach ($style as $style)
+                            @foreach ($styleparameter as $style)
 
                             <tr>
                                 <td>{{ $count }}</td>
