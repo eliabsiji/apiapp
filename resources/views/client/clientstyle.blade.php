@@ -23,7 +23,7 @@
                     {{-- @foreach ($client as $client)
                     <h4 class="mb-sm-0">Clientstyle Style For {{$client->fullname}}</h4>
                     @endforeach --}}
-                    <h4 class="mb-sm-0">Clientstyle  </h4>
+                    <h4 class="mb-sm-0">Clientstyle </h4>
 
 
 
