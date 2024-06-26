@@ -25,7 +25,8 @@ class AddparameterController extends Controller
                                     ->leftjoin('app_parameter_models','app_parameter_models.id','=','app_styleparameter_models.parameterid')
                                     ->leftjoin('users','users.id','=','app_styleparameter_models.user_id')
                     ->get(['users.id as id','app_style_models.style as style',
-                            'app_style_models.img as img',
+                            'app_parameter_models.parameter as parameter',
+                            'app_styleparameter_models.parameterid as ',
                            'app_style_models.created_at as datecreated']);
         return view('stylesetting.addparameter')->with('styleparameter',$styleparameter)
                                                 ->with('styles',$style)

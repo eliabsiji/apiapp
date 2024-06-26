@@ -22,25 +22,22 @@ class StyleparameterController extends Controller
     }
 
     public function addstyleparameter(Request $request){
-        // print_r($request->all());
-        // StyleparameterModel::updateOrCreate(
-        //     ['user_id'=> $request->userid,
-        //      'styleid'=> $request->styleid,
-        // ],
-        //     [
-        //      'parameterid'=>$request->parameters[0],
-        //     ]
-        // );
-
 
         for($i=0 ; $i <  count($request->parameters); $i++){
-        StyleparameterModel::create(
-            ['user_id'=> $request->userid,
-             'styleid'=> $request->styleid,
-             'parameterid'=> $request->parameters[$i]
-            ]);
+        //check if parameters already exist for this style.
+        $checkparameter = StyleparameterModel::where('user_id',$request->userid)
+                        ->where('styleid',$request->styleid)
+                        ->where('parameterid',$request->parameters[$i])->exists();
+        if(!$checkparameter){
+            StyleparameterModel::create(
+                        ['user_id'=> $request->userid,
+                         'styleid'=> $request->styleid,
+                         'parameterid'=> $request->parameters[$i]
+                        ]);
         }
-        return redirect()->route('styleparameter') ->with('success','parameter Assigned Successfully');
+
+        }
+        return back() ->with('success','parameter Assigned Successfully');
     }
 
 }
