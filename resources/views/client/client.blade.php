@@ -107,6 +107,7 @@
                                                @php
                                                      $count++;
                                                 @endphp
+
                                                 @endforeach
                                             </tbody>
                                           </table>
