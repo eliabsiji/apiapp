@@ -35,10 +35,6 @@
                                         <i class="ri-search-line search-icon"></i>
                                     </div>
                                 </div><!--end col-->
-
-
-
-
                             </div><!--end row-->
                         </div>
                     </div>
@@ -66,8 +62,8 @@
                                    {{-- <input type="text" name="{{$parameter->id}}" value="{{$parameter->parameter}}" id=""> --}}
                                     <!-- Inline Checkbox -->
                                     <div class="form-check form-switch   form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="parameters[]" value="{{$parameter->id}}">
-                                        <label class="form-check-label" for="inlineCheckbox1">{{$parameter->parameter}}</label>
+                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox{{$parameter->id}}" name="parameters[]" value="{{$parameter->id}}">
+                                        <label class="form-check-label" for="inlineCheckbox{{$parameter->id}}">{{$parameter->parameter}}</label>
                                     </div>
                                   @endforeach
 
@@ -113,35 +109,34 @@
                                     <thead class="table-active">
                                         <tr>
                                             <th>
-                                                {{-- <div class="form-check">
+                                                <div class="form-check">
                                                     <input class="form-check-input" type="checkbox" value="option" id="checkAll">
                                                     <label class="form-check-label" for="checkAll"></label>
-                                                </div> --}}
+                                                </div>
                                             </th>
-                                            <th class="sort cursor-pointer" data-sort="products">SN</th>
-                                            <th class="sort cursor-pointer" data-sort="products">Style Name</th>
-                                            <th class="sort cursor-pointer" data-sort="category">Style Image</th>
-                                            <th class="sort cursor-pointer" data-sort="stock">Assigned-Parameters</th>
+                                            <th class="sort cursor-pointer" data-sort="sn">SN</th>
+                                            <th class="sort cursor-pointer" data-sort="paremeter">Parameter</th>
+                                            <th class="sort cursor-pointer" data-sort="dateupdated">Dated Updated</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
 
-                                </table>
-                            </div><!--end table-responsive-->
-                        </thead>
-                        <tbody>
-                            @php
-                                 $count = 1;
-                            @endphp
+                            <tbody>
+                                @php
+                                    $count = 1;
+                                @endphp
 
-                            @foreach ($styleparameter as $style)
+                                @foreach ($styleparameter as $style)
 
                             <tr>
-                                <td>{{ $count }}</td>
-                                <td>{{ $style->style }}</td>
-                                <td>{{ $style->img }}</td>
-                                <td>{{ $style->img }}</td>
-                                <td>{{ $style->datecreated }}</td>
+                                <th scope="row">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="chk_child" value="option1">
+                                    </div>
+                                </th>
+                                <td class="sn">{{ $count }}</td>
+                                <td class="parameter">{{ $style->parameter }}</td>
+                                <td class="dateupdated">{{ $style->datecreated }}</td>
                                 <td>
                                     <div class="d-flex gap-2">
                                     <div class="edit">
@@ -151,8 +146,7 @@
                                         <button class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">Remove</button>
                                     </div>
                                   </td>
-                                </tr>
-                           </tr>
+                            </tr>
                            @php
                                  $count++;
                             @endphp
@@ -169,8 +163,8 @@
                                             <i class="bi bi-search"></i>
                                         </div>
                                     </div>
-                                    <h5 class="mt-2">Sorry! No Result Found</h5>
-                                    <p class="text-muted mb-0">We've searched more than 150+ products We did not find any products for you search.</p>
+                                    <h5 class="mt-2">Sorry! No Added Parameter Found</h5>
+                                    {{-- <p class="text-muted mb-0">We've searched more than 150+ products We did not find any products for you search.</p> --}}
                                 </div>
                             </div>
                             <!-- end noresult -->
@@ -204,4 +198,29 @@
     <!-- container-fluid -->
 </div>
 
+
+     <!-- Modal -->
+     <div class="modal fade zoomIn" id="deleteRecordModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="btn-close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mt-2 text-center">
+                        <i class="bi bi-trash3 display-5 text-danger"></i>
+                        <div class="mt-4 pt-2 fs-base mx-4 mx-sm-5">
+                            <h4>Are you Sure ?</h4>
+                            <p class="text-muted mx-4 mb-0">Are you Sure You want to Remove this Record ?</p>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
+                        <button type="button" class="btn w-sm btn-light" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn w-sm btn-danger " id="delete-record">Yes, Delete It!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end modal -->
 @endsection

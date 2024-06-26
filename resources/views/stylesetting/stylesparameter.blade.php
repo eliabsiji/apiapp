@@ -96,7 +96,7 @@
                                             <td class="customer_parameter"><img src="{{ $style->img }}" alt="" class="rounded avatar-sm"> {{ $style->img }}</td>
                                             <td class="customer_parameter">
                                                 <div class="edit">
-                                                    <a href="{{route('addparameters',$style->id)}}" class="btn btn-sm btn-success edit-item-btn">Add Parameter</a>
+                                                    <a href="{{route('addparameters',$style->styleid)}}" class="btn btn-sm btn-success edit-item-btn">Add Parameter</a>
                                                 </div>
                                             </td>
                                             <td>{{ $style->datecreated }}</td>
