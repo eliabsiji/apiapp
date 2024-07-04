@@ -46,7 +46,7 @@ class ClientController extends Controller {
 
     public function updateclient( Request $request ) {
         $reg = app_Client_Model::find( $request->input( 'id' ) );
-        $reg ->fn = $request->input( 'fullname' );
+        $reg ->fullname = $request->input( 'fullname' );
         $reg->email = $request->input( 'email' );
         $reg->phone = $request->input( 'phonenumber' );
         $reg->gender = $request->input( 'gender' );

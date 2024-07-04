@@ -22,16 +22,19 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/dashboard',[DashboardController::class, 'index'])->name('dashboard');
+
 // Style Settings
 Route::get('/stylesettings',[StyleController::class, 'index'])->name('style');
 Route::post('/registerstyle',[StyleController::class, 'savestyle'])->name('registerstyle');
 Route::get('/stylesparametersettings',[StyleparameterController::class, 'index'])->name('styleparameter');
 Route::post('/addstylesparametersettings',[StyleparameterController::class, 'addstyleparameter'])->name('styleparameter.addstyleparameter');
+Route::get('/deletestyle/{id}',[StyleController::class, 'deletestyle'])->name('deletestyle');
 
 //parameter settings
 Route::get('/parametersettings',[ParameterController::class, 'index'])->name('parameter');
 Route::post('/createparameter',[ParameterController::class, 'saveparameter'])->name('createparameter');
 Route::get('/addparameters/{styleid}',[AddparameterController::class, 'index'])->name('addparameters');
+Route::get('/deleteparameter/{id}',[ParameterController::class, 'deleteparameter'])->name('deleteparameter');
 
 
 Route::post('/registerparameter',[StyleParameterController::class, 'savestyleparameter'])->name('registerstyleparameter');

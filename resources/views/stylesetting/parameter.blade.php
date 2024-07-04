@@ -97,7 +97,7 @@
                                                 <button class="btn btn-sm btn-success edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Edit</button>
                                             </div>
                                             <div class="remove">
-                                                <button class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">Remove</button>
+                                                <a href="{{ route('deleteparameter',$style->id)}}" class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">Remove</a></button>
                                             </div>
                                           </td>
                                         </tr>

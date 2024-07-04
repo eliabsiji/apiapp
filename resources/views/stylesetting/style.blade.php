@@ -99,7 +99,7 @@
                                                 <button class="btn btn-sm btn-success edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Edit</button>
                                             </div>
                                             <div class="remove">
-                                                <button class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">Remove</button>
+                                                <button data-ids="1" type="button" class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">Remove</button>
                                             </div>
                                           </td>
                                         </tr>
@@ -177,12 +177,13 @@
                             <i class="bi bi-trash3 display-5 text-danger"></i>
                             <div class="mt-4 pt-2 fs-base mx-4 mx-sm-5">
                                 <h4>Are you Sure ?</h4>
+                                <input type="text" value="">
                                 <p class="text-muted mx-4 mb-0">Are you Sure You want to Remove this Record ?</p>
                             </div>
                         </div>
                         <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
                             <button type="button" class="btn w-sm btn-light" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn w-sm btn-danger " id="delete-record">Yes, Delete It!</button>
+                            <button type="button" data-id="" class="btn w-sm btn-danger " id="delete-record">Yes, Delete It!</button>
                         </div>
                     </div>
                 </div>
@@ -193,4 +194,12 @@
     </div>
     <!-- container-fluid -->
 </div>
+{{-- <script>
+  $(document).ready(function(){
+          $('.remove-item-btn').on('click', function (e){
+                      alert("ibasaiuf"):
+           });
+  });
+
+</script> --}}
 @endsection
