@@ -64,7 +64,33 @@
                                     <div class="form-check form-switch   form-check-inline">
                                         <input class="form-check-input" type="checkbox" id="inlineCheckbox{{$parameter->id}}" name="parameters[]" value="{{$parameter->id}}">
                                         <label class="form-check-label" for="inlineCheckbox{{$parameter->id}}">{{$parameter->parameter}}</label>
+
+                                      <script>
+                                        function form_atleastonechecked() {
+                                      //Loop through each checkbox in the group
+                                      for (let i = 0; i <script checkboxGroup.length; i++)
+                                      //check if the current checkbox is checked
+                                if(checkboxGroup[i].checked) {
+                                    alert("please select at least one option.")
+                                    //if any checkbox is checked, return true
+                                    return true;
+                                }
+
+                                 }
+                                  //if no checkboxes are checked, return false
+                                  return false;
+
+                              //Example usage:
+                              const checkboxGroup = document.querySelectorAll('input [name="options"]');
+                              const isValid = atLeastOneChecked(checkboxGroup);
+
+                              if(!isValid) {
+
+                              }
+
+                                  </script>
                                     </div>
+
                                   @endforeach
 
 
@@ -72,7 +98,7 @@
 
                                         <div class="hstack gap-2 justify-content-end">
 
-                                            <button type="submit" class="btn btn-success" id="add-btn">Add Parameter</button>
+                                            <button type="submit" class="btn btn-success" id="add-btn form_atleastonechecke">Add Parameter</button>
                                             {{-- <button type="button" class="btn btn-success" id="edit-btn">Update</button> --}}
                                         </div>
 

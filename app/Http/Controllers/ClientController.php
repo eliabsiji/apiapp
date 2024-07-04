@@ -19,7 +19,7 @@ class ClientController extends Controller
                            'app_client.gender as gender','app_client.address as address',
                            'app_client.created_at as datecreated']);
         return view('client.client')->with('client',$client);
-
+ 
     }
 
   public function saveclient(Request $request){
