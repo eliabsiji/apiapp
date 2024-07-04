@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\StyleModel;
 use Illuminate\Http\Request;
-use App\Models\ParameterModel;
+use App\Models\app_parameter_Model;
 use App\Models\App_Style_Model;
-use App\Models\StyleparameterModel;
+use App\Models\app_style_parameter_Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 
@@ -19,8 +19,8 @@ class AddparameterController extends Controller
         $style = App_Style_Model::where('user_id',Auth::user()->id)
                            ->where('id',$styleid)->get();
 
-        $parameter = ParameterModel::where('user_id',Auth::user()->id)->get();
-        $styleparameter = StyleparameterModel::where('app_styleparameter_models.user_id',Auth::user()->id)
+        $parameter = app_parameter_Model::where('user_id',Auth::user()->id)->get();
+        $styleparameter = app_style_parameter_Model::where('app_styleparameter_models.user_id',Auth::user()->id)
                                     ->leftjoin('app_style_models','app_style_models.id','=','app_styleparameter_models.styleid')
                                     ->leftjoin('app_parameter_models','app_parameter_models.id','=','app_styleparameter_models.parameterid')
                                     ->leftjoin('users','users.id','=','app_styleparameter_models.user_id')

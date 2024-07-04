@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('app_measurement_models', function (Blueprint $table) {
             $table->id();
+            $table->string('styleparameterid');
             $table->timestamps();
         });
     }

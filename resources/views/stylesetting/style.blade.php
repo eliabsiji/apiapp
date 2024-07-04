@@ -24,9 +24,12 @@
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">Tables</a></li>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">Basic Settings</a></li>
                             <li class="breadcrumb-item active">Style-List</li>
                         </ol>
+                        <div class="page-title-right">
+                            <a href="{{route('dashboard')}}" class="btn btn-sm btn-success edit-item-btn"><< Back</a>
+                        </div>
                     </div>
 
                 </div>

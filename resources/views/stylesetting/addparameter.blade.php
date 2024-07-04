@@ -11,11 +11,40 @@
                    <h4 class="mb-sm-0">{{$style->style}} Style</h4>
                    @endforeach
 
+                   @if (\Session::has('success'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <strong>Congrats! </strong>{{ \Session::get('success') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close"></button>
+                        </div>
+                    @endif
+                    @if (\Session::has('warning'))
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <strong>OOPS! </strong>{{ \Session::get('warning') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close"></button>
+                        </div>
+                    @endif
+
+                    @if (\Session::has('selected'))
+                    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                        <strong>OOPS! </strong>
+                        @foreach (\Session::get('selected_parameters') as $selected_parameter )
+                                    {{ $selected_parameter }}
+                        @endforeach
+                        {{ \Session::get('selected') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close"></button>
+                    </div>
+                @endif
+
+
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
+
                             <li class="breadcrumb-item"><a href="javascript: void(0);">Basic Setting</a></li>
                             <li class="breadcrumb-item active">Style Parameter</li>
                         </ol>
+                        <div class="page-title-right">
+                            <a href="{{route('styleparameter')}}" class="btn btn-sm btn-success edit-item-btn"><< Back</a>
+                        </div>
                     </div>
 
                 </div>
@@ -62,7 +91,7 @@
                                    {{-- <input type="text" name="{{$parameter->id}}" value="{{$parameter->parameter}}" id=""> --}}
                                     <!-- Inline Checkbox -->
                                     <div class="form-check form-switch   form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox{{$parameter->id}}" name="parameters[]" value="{{$parameter->id}}">
+                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox{{$parameter->id}}" id="parameter" name="parameters[]" value="{{$parameter->id}}">
                                         <label class="form-check-label" for="inlineCheckbox{{$parameter->id}}">{{$parameter->parameter}}</label>
                                     </div>
                                   @endforeach
@@ -72,7 +101,7 @@
 
                                         <div class="hstack gap-2 justify-content-end">
 
-                                            <button type="submit" class="btn btn-success" id="add-btn">Add Parameter</button>
+                                            <button type="submit" class="btn btn-success"  onclick="form_submit()">Add Parameter</button>
                                             {{-- <button type="button" class="btn btn-success" id="edit-btn">Update</button> --}}
                                         </div>
 
@@ -153,6 +182,20 @@
                             @endforeach
                         </tbody>
                       </table>
+
+                      <script type="text/javascript">
+                        function form_submit() {
+                            var pr = document.getElementById("parameter").value;
+
+
+                            if (pr == "") {
+                                alert("Please Select Atleast one Parameter");
+                                return false;
+                            }
+
+                              document.getElementById("save_form").submit();
+                         }
+                        </script>
 
                 </div>
 

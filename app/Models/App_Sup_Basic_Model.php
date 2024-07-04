@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class app_style_parameter_Model extends Model
+class App_Sup_Basic_Model extends Model
 {
-    use HasFactory;
-    protected $table = 'app_styleparameter_models';
+    protected $table = 'app_sup_basic_models';
     protected $fillable = [
         'user_id',
-        'parameterid',
-        'styleid',
-        'description',
+        'username',
+        'no_client',
+        'no_styles',
+        'expiring_date',
     ];
 }
