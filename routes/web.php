@@ -8,6 +8,7 @@ use App\Http\controllers\StyleparameterController;
 use App\Http\controllers\ParameterController;
 use App\Http\controllers\AddparameterController;
 use App\Http\controllers\projectController;
+use App\Http\controllers\ClientContactController;
 
 
 
@@ -37,13 +38,21 @@ Route::post('/registerparameter',[StyleParameterController::class, 'savestylepar
 
 // Clients
 Route::get('/client',[ClientController::class, 'index'])->name('client');
-Route::get('/clientstyle',[ClientController::class, 'clientstyle'])->name('clientstyle');
+Route::get('/clientstyle/{id}',[ClientController::class, 'clientstyle'])->name('clientstyle');
 Route::post('/registerclient',[ClientController::class, 'saveclient'])->name('registerclient');
+Route::post('/measurement',[ClientController::class, 'measurement'])->name('clientmeasurement');
+Route::get('/editclient/{id}',[ClientController::class, 'editclient'])->name('editclient');
+Route::get('/deleteclient/{id}',[ClientController::class, 'deleteclient'])->name('deleteclient');
+Route::post('/updateclient',[ClientController::class, 'updateclient'])->name('updateclient');
+
+//Clients Contact
+Route::get('/contact',[ClientContactController::class, 'index'])->name('clientcontact');
+
 
 
 // Project
 Route::get('/project',[ProjectController::class, 'index'])->name('project');
 Route::post('/registerproject',[ProjectController::class, 'saveproject'])->name('registerproject');
-// Route::get('/register',[RegisterController::class, 'register'])->name('register');
-// Route::post('/submitregister',[RegisterController::class, 'submit'])->name('submitregister');
+// Route::get('/register',[ClientController::class, 'register'])->name('register');
+// Route::post('/submitregister',[ClientController::class, 'submit'])->name('submitregister');
 

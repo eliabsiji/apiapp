@@ -2,6 +2,10 @@
 @section('content')
 <div class="page-content">
     <div class="container-fluid">
+        {{-- @foreach ($client as $c)
+        {{$client->fullname}}
+
+        @endforeach --}}
 
             @if (\Session::has('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -14,25 +18,23 @@
             <strong>OOPS! </strong>{{ \Session::get('danger') }}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close"></button>
         </div>
-    @endif
+        @endif
 
         <!-- start page title -->
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                    {{-- @foreach ($client as $client)
-                    <h4 class="mb-sm-0">Clientstyle Style For {{$client->fullname}}</h4>
-                    @endforeach --}}
-                    <h4 class="mb-sm-0">Clientstyle </h4>
 
 
-
+                    <h4 class="mb-sm-0">Client Style For   </h4>
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">Tables</a></li>
-                            <li class="breadcrumb-item active">Clientstyle -List</li>
+                            <li class="breadcrumb-item active">Client style -List</li>
                         </ol>
+                        <div class="page-title-right">
+                            <a href="{{route('client')}}" class="btn btn-sm btn-success edit-item-btn"><< Back</a>
+                        </div>
                     </div>
 
                 </div>
@@ -44,7 +46,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title mb-0">Add, Edit & Remove</h4>
+                        <h4 class="card-title mb-0">CLIENT STYLE MANAGEMENT</h4>
                     </div><!-- end card header -->
 
                     <div class="card-body">
@@ -92,7 +94,7 @@
                                         <td>{{ $count }}</td>
                                         <td>{{ $clientstyle->style}}</td>
                                         <td>{{ $clientstyle->img }}</td>
-                                        <td><a href="#" class="btn btn-success">Take-Measurement</a></td>
+                                        <td><a href="{{route('clientmeasurement')}}" class="btn btn-success">Take Measurement</a></td>
                                         <td>{{ $clientstyle->datecreated }}</td>
                                         <td>
                                             <div class="d-flex gap-2">
@@ -134,6 +136,7 @@
                     </div>
                     <form action="{{ route('registerstyle')}}" class="tablelist-form" method="Post" >
                         @csrf
+
                         <div class="modal-body">
 
                          <div class="mb-3">

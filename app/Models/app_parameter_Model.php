@@ -8,9 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class app_parameter_Model extends Model
 {
     use HasFactory;
+    protected $table = 'app_parameter_models';
     protected $fillable = [
-        'id',
         'user_id',
         'parameter',
+        'description',
     ];
 }

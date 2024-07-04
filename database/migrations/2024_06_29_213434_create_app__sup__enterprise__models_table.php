@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('app_client_models', function (Blueprint $table) {
+        Schema::create('app__sup__enterprise__models', function (Blueprint $table) {
             $table->id();
             $table->string("user_id")->nullable();
-            $table->string("fullname")->nullable();
-            $table->string("email")->nullable();
-            $table->string("phonenumber")->nullable();
-            $table->string("gender")->nullable();
-            $table->string("address")->nullable();
+            $table->string("no_clients")->nullable();
+            $table->string("no_styles")->nullable();
+            $table->string("client_contacts")->nullable();
+            $table->string("pos")->nullable();
+            $table->string("expiring_date")->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('app_client');
+        Schema::dropIfExists('app__sup__enterprise__models');
     }
 };

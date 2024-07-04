@@ -142,7 +142,7 @@
                                             <a class="dropdown-item" href="#">Current Year</a>
                                         </div>
                                     </div>
-                                    <p class="fs-md text-muted mb-0">Total Sessions</p>
+                                    <p class="fs-md text-muted mb-0">Total Styles</p>
 
                                     <div class="row mt-4 align-items-end">
                                         <div class="col-lg-6">
@@ -170,7 +170,7 @@
                                             <a class="dropdown-item" href="#">Current Year</a>
                                         </div>
                                     </div>
-                                    <p class="fs-md text-muted mb-0">Avg. Visit Duration</p>
+                                    <p class="fs-md text-muted mb-0">Total Parameters</p>
 
                                     <div class="row mt-4 align-items-end">
                                         <div class="col-lg-6">
@@ -198,7 +198,7 @@
                                             <a class="dropdown-item" href="#">Current Year</a>
                                         </div>
                                     </div>
-                                    <p class="fs-md text-muted mb-0">Impressions</p>
+                                    <p class="fs-md text-muted mb-0">Clients</p>
 
                                     <div class="row mt-4 align-items-end">
                                         <div class="col-lg-6">
