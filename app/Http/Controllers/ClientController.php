@@ -10,6 +10,17 @@ use Illuminate\Support\Facades\Auth;
 
 class ClientController extends Controller {
 
+<<<<<<< HEAD
+    public function index(){
+
+        $client = User::rightjoin('app_client','app_client.user_id','=','users.id')
+                    ->get(['users.id as id','app_client.fullname as fullname',
+                            'app_client.email as email','app_client.phonenumber as phonenumber',
+                           'app_client.gender as gender','app_client.address as address',
+                           'app_client.created_at as datecreated']);
+        return view('client.client')->with('client',$client);
+ 
+=======
     public function index() {
         $client = app_Client_Model::where( 'user_id', Auth::user()->id )
         ->leftjoin( 'users', 'app_client_models.user_id', '=', 'users.id' )
@@ -19,6 +30,7 @@ class ClientController extends Controller {
         'app_client_models.created_at as datecreated' ] );
         return view( 'client.client' )->with( 'client', $client );
 
+>>>>>>> e2664b3636619054d727e92f967404ff531578f4
     }
 
     public function saveclient( Request $request ) {

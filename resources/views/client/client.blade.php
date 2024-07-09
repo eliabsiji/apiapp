@@ -19,7 +19,10 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0">Client Management</h4>
+                    @foreach($clients as $client)
+                    <h4 class="mb-sm-0">{{$clients->client}}Client Management</h4>
+                     @endforeach
+
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
@@ -93,7 +96,11 @@
                                                     <td>{{ $client->phonenumber }}</td>
                                                     <td>{{ $client->gender }}</td>
                                                     <td>{{ $client->address }}</td>
+<<<<<<< HEAD
+                                                    <td><a href="{{ route('clientstyle',$client->id)}}" class="btn btn-success">Select-Style</a></td>
+=======
                                                     <td><a href="{{ route('clientstyle',$client->clientid)}}" class="btn btn-success">Select Style</a></td>
+>>>>>>> e2664b3636619054d727e92f967404ff531578f4
                                                     <td>{{ $client->datecreated }}</td>
                                                     <td>
                                                         <div class="d-flex gap-2">

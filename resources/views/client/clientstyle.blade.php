@@ -93,7 +93,7 @@
 
                                     <tr>
                                         <td>{{ $count }}</td>
-                                        <td>{{ $clientstyle->style }}</td>
+                                        <td>{{ $clientstyle->style}}</td>
                                         <td>{{ $clientstyle->img }}</td>
                                         <td><a href="{{route('clientmeasurement')}}" class="btn btn-success">Take Measurement</a></td>
                                         <td>{{ $clientstyle->datecreated }}</td>
