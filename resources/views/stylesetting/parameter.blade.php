@@ -84,20 +84,20 @@
                                          $count = 1;
                                     @endphp
 
-                                    @foreach ($style as $style)
+                                    @foreach ($parameter as $parameter)
 
                                     <tr>
                                         <td>{{ $count }}</td>
-                                        <td>{{ $style->parameter }}</td>
-                                        <td>{{ $style->description }}</td>
-                                        <td>{{ $style->datecreated }}</td>
+                                        <td>{{ $parameter->parameter }}</td>
+                                        <td>{{ $parameter->description }}</td>
+                                        <td>{{ $parameter->datecreated }}</td>
                                         <td>
                                             <div class="d-flex gap-2">
                                             <div class="edit">
-                                                <button class="btn btn-sm btn-success edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Edit</button>
+                                                <a href="{{ route('editparameter',$parameter->parameterid)}}" class="btn btn-sm btn-success edit-item-btn"  data-bs-target="#showModal">Edit</a></button>
                                             </div>
                                             <div class="remove">
-                                                <a href="{{ route('deleteparameter',$style->id)}}" class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">Remove</a></button>
+                                                <a href="{{ route('deleteparameter',$parameter->parameterid)}}" class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">Remove</a></button>
                                             </div>
                                           </td>
                                         </tr>
@@ -135,7 +135,7 @@
 
                          <div class="mb-3">
                           <label for="customername-field" class="form-label">Parameter Name</label>
-                                <input type="text" id="customername-field" name="parameter" class="form-control" placeholder="Enter Name" required >
+                                <input type="text" id="customername-field" name="parameter" class="form-control" placeholder="Enter Parameter" required >
                             </div>
 
                             <div class="mb-3">

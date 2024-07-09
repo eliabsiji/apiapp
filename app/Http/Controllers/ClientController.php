@@ -44,18 +44,19 @@ class ClientController extends Controller {
         return view( 'client.editclient' )->with( 'client', $client );
     }
 
-    public function updateclient( Request $request ) {
-        $reg = app_Client_Model::find( $request->input( 'id' ) );
-        $reg ->fullname = $request->input( 'fullname' );
-        $reg->email = $request->input( 'email' );
-        $reg->phone = $request->input( 'phonenumber' );
-        $reg->gender = $request->input( 'gender' );
-        $reg->address = $request->input( 'address' );
-        $reg->save();
+    public function updateclient(Request $request ){
+        app_Client_Model::updateOrCreate( [
+            'user_id'=> Auth::user()->id,
+            'fullname'=>$request->fullname,
+            'email'=>$request->email,
+            'phonenumber'=>$request->phonenumber,
+            'gender'=>$request->gender,
+            'address'=>$request->address,
+        ] );
+     return redirect()->route('client.client')->with('success','Data updated successfully');
 
-        return redirect( 'client.client' )->with( 'success', 'Data Updated Successfully' );
 
-    }
+   }
 
     public function deleteclient( $id ) {
         $client  = app_Client_Model::find( $id )->delete();
@@ -66,7 +67,8 @@ class ClientController extends Controller {
     public function clientstyle( $id ) {
         $client = app_Client_Model::where( 'id', $id )
         ->where( 'user_id', Auth::user()->id )
-        ->get( [ 'app_client_models.id as clientid', 'app_client_models.fullname as fullname' ] );
+        ->get( [ 'app_client_models.id as clientid', 'app_client_models.fullname as fullname',
+        'app_client_models.phonenumber as phonenumber' ] );
         $style = app_style_Model::where( 'user_id', Auth::user()->id )
         ->leftjoin( 'users', 'app_style_models.user_id', '=', 'users.id' )
         ->get( [ 'users.id as id', 'app_style_models.style as style', 'app_style_models.img as img',

@@ -28,13 +28,19 @@ Route::get('/stylesettings',[StyleController::class, 'index'])->name('style');
 Route::post('/registerstyle',[StyleController::class, 'savestyle'])->name('registerstyle');
 Route::get('/stylesparametersettings',[StyleparameterController::class, 'index'])->name('styleparameter');
 Route::post('/addstylesparametersettings',[StyleparameterController::class, 'addstyleparameter'])->name('styleparameter.addstyleparameter');
+Route::get('/editstyle/{id}',[StyleController::class, 'editstyle'])->name('editstyle');
 Route::get('/deletestyle/{id}',[StyleController::class, 'deletestyle'])->name('deletestyle');
+Route::post('/updatestyle',[StyleController::class, 'updatestyle'])->name('updatestyle');
+
+
 
 //parameter settings
 Route::get('/parametersettings',[ParameterController::class, 'index'])->name('parameter');
 Route::post('/createparameter',[ParameterController::class, 'saveparameter'])->name('createparameter');
 Route::get('/addparameters/{styleid}',[AddparameterController::class, 'index'])->name('addparameters');
+Route::get('/editparameter/{id}',[ParameterController::class, 'editparameter'])->name('editparameter');
 Route::get('/deleteparameter/{id}',[ParameterController::class, 'deleteparameter'])->name('deleteparameter');
+Route::post('/updateparameter',[ParameterController::class, 'updateparameter'])->name('updateparameter');
 
 
 Route::post('/registerparameter',[StyleParameterController::class, 'savestyleparameter'])->name('registerstyleparameter');

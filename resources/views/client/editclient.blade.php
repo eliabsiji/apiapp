@@ -32,11 +32,7 @@
                                 <div class="col-md-6">
                                 <div class="form-group">
                                 <label class="form-label">Gender</label>
-                                <select class="form-control"  value="{{$client->gender}}" name="gender" required>
-                                <option>Please Select</option>
-                                <option>Male</option>
-                                <option>Female</option>
-                              </select>
+                                <input type="text" class="form-control"  value="{{$client->gender}}" name="gender">
                             </div>
                         </div>
                             <div class="col-md-6">

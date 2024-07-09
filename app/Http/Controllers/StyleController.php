@@ -13,7 +13,7 @@ class StyleController extends Controller {
 
         $style = App_style_Model::where( 'user_id', Auth::user()->id )
         ->leftjoin( 'users', 'app_style_models.user_id', '=', 'users.id' )
-        ->get( [ 'users.id as id', 'app_style_models.style as style', 'app_style_models.img as img',
+        ->get( [ 'users.id as id', 'app_style_models.style as style', 'app_style_models.id as styleid', 'app_style_models.img as img',
         'app_style_models.description as description',
         'app_style_models.created_at as datecreated' ] );
         return view( 'stylesetting.style' )->with( 'style', $style );
@@ -28,12 +28,27 @@ class StyleController extends Controller {
             'description'=>$request->description,
 
         ] );
-        return back() ->with( 'success', 'You have succefully Registered Style' );
+        return back() ->with( 'success', 'You have succefully Registered Style');
     }
 
     public function deletestyle( $id ) {
         $style  = app_style_Model::find( $id )->delete();
         return view( 'stylesetting.style' )->with( 'style', $style );
     }
+    public function editstyle( $id ) {
+        $style  = app_style_Model::find( $id );
+        return view( 'stylesetting.editstyles' )->with( 'style', $style );
+    }
+
+    public function updatestyle( Request $request ) {
+        $reg = app_style_Model::find( $request->input( 'id' ) );
+        $reg ->style = $request->input( 'style' );
+        $reg->img = $request->input( 'img' );
+        $reg->save();
+
+        return redirect( 'stylesetting.style' )->with( 'success', 'Data Updated Successfully' );
+
+    }
+
 
 }
