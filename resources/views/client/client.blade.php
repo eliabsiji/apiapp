@@ -96,11 +96,7 @@
                                                     <td>{{ $client->phonenumber }}</td>
                                                     <td>{{ $client->gender }}</td>
                                                     <td>{{ $client->address }}</td>
-<<<<<<< HEAD
-                                                    <td><a href="{{ route('clientstyle',$client->id)}}" class="btn btn-success">Select-Style</a></td>
-=======
                                                     <td><a href="{{ route('clientstyle',$client->clientid)}}" class="btn btn-success">Select Style</a></td>
->>>>>>> e2664b3636619054d727e92f967404ff531578f4
                                                     <td>{{ $client->datecreated }}</td>
                                                     <td>
                                                         <div class="d-flex gap-2">
