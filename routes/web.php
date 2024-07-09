@@ -65,3 +65,7 @@ Route::post('/registerproject',[ProjectController::class, 'saveproject'])->name(
 // Route::get('/register',[ClientController::class, 'register'])->name('register');
 // Route::post('/submitregister',[ClientController::class, 'submit'])->name('submitregister');
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

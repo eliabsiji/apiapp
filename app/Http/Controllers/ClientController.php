@@ -17,7 +17,11 @@ class ClientController extends Controller {
         'app_client_models.email as email', 'app_client_models.phonenumber as phonenumber',
         'app_client_models.gender as gender', 'app_client_models.address as address',
         'app_client_models.created_at as datecreated' ] );
+<<<<<<< HEAD
         return view( 'client.client' )->with( 'client', $clients );
+=======
+        return view( 'client.client' )->with( 'clients', $client );
+>>>>>>> c53009dbe5ea224dea50ab4c07c5c918b66f2cbb
 
     }
 

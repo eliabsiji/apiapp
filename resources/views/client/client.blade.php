@@ -88,7 +88,7 @@
                                                      $count = 1;
                                                 @endphp
 
-                                                @foreach ($client as $client)
+                                                @foreach ($clients as $client)
 
                                                 <tr>
                                                     <td>{{ $count }}</td>
