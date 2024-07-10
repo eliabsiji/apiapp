@@ -11,17 +11,13 @@ use Illuminate\Support\Facades\Auth;
 class ClientController extends Controller {
 
     public function index() {
-        $clients = app_Client_Model::where( 'user_id', Auth::user()->id )
+        $client = app_Client_Model::where( 'user_id', Auth::user()->id )
         ->leftjoin( 'users', 'app_client_models.user_id', '=', 'users.id' )
         ->get( [ 'users.id as id', 'app_client_models.fullname as fullname', 'app_client_models.id as clientid',
         'app_client_models.email as email', 'app_client_models.phonenumber as phonenumber',
         'app_client_models.gender as gender', 'app_client_models.address as address',
         'app_client_models.created_at as datecreated' ] );
-<<<<<<< HEAD
-        return view( 'client.client' )->with( 'client', $clients );
-=======
-        return view( 'client.client' )->with( 'clients', $client );
->>>>>>> c53009dbe5ea224dea50ab4c07c5c918b66f2cbb
+        return view( 'client.client' )->with( 'client', $client );
 
     }
 
@@ -51,13 +47,16 @@ class ClientController extends Controller {
     public function updateclient(Request $request ){
         app_Client_Model::updateOrCreate( [
             'user_id'=> Auth::user()->id,
+            'id'=>$request->clientid,
+        ] ,
+        [
             'fullname'=>$request->fullname,
             'email'=>$request->email,
             'phonenumber'=>$request->phonenumber,
             'gender'=>$request->gender,
             'address'=>$request->address,
-        ] );
-     return redirect()->route('client.client')->with('success','Data updated successfully');
+        ]);
+     return redirect()->route('client')->with('success','Data updated successfully');
 
 
    }

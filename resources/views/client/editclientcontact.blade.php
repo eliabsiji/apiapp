@@ -6,10 +6,10 @@
         <div class="col-md-12 grid-margin">
             <div class="card">
                 <div class="card-body">
-                    <h6 class="card-title">Update Client Data</h6>
+                    <h6 class="card-title">Update Client Contacts Data</h6>
                     <p class="text-muted mb-3">Welcome to Client Update Page</p>
                     <ul class="nav navbar-nav navbar-right" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
-                        <li><a href="{{ route('client')}}"  class="btn btn-success text-right"><i class="fa fa-sign-out"></i><<  Back</a></li>
+                        <li><a href="{{ route('clientcontact')}}"  class="btn btn-success text-right"><i class="fa fa-sign-out"></i><<  Back</a></li>
                     </ul>
                     @if (\Session::has('success'))
                   <div class="alert-success alert-dismissible fade show" role="alert">
@@ -18,9 +18,8 @@
                     <button type="button" class="btn-close" data-bs-dismiss="alert" arial-label="close"></button>
                   </div>
                   @endif
-                    <form class="forms-sample" action="{{ route('updateclient') }}" method="post">
+                    <form class="forms-sample" action="{{ route('updateclientcontact') }}" method="post>
                         @csrf
-                        <input type="text" value="{{$client->id}}" name="clientid">
                         <div class="row mb-3">
                             <div class="col">
                                 <label class="form-label">Full Name</label>

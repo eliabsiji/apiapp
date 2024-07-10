@@ -34,7 +34,7 @@
                         <div id="customerList">
                             <div class="row g-4 mb-3">
                                 <div class="col-sm-auto">
-                   
+
                                 </div>
                                 <div class="col-sm">
                                     <div class="d-flex justify-content-sm-end">
@@ -80,9 +80,9 @@
                                                     <td>{{ $client->datecreated }}</td>
                                                     <td>
                                                         <div class="d-flex gap-2">
-                                                        <div class="edit">
-                                                            <button class="btn btn-sm btn-success edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Edit</button>
-                                                        </div>
+                                                            <div class="edit">
+                                                                <a href="{{ route ('editclientcontact',$client->clientid) }}" class="btn btn-sm btn-success edit-item-btn">Edit</a></button>
+                                                            </div>
                                                         <div class="remove">
                                                             <button class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">Remove</button>
                                                         </div>

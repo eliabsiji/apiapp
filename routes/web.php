@@ -56,6 +56,10 @@ Route::post('/updateclient',[ClientController::class, 'updateclient'])->name('up
 
 //Clients Contact
 Route::get('/contact',[ClientContactController::class, 'index'])->name('clientcontact');
+Route::get('/editclientcontact/{id}',[ClientContactController::class, 'editclientcontact'])->name('editclientcontact');
+Route::get('/deleteclientcontact/{id}',[ClientContactController::class, 'deleteclientcontact'])->name('deleteclientcontact');
+Route::post('/updateclientcontact',[ClientContactController::class, 'updateclientcontact'])->name('updateclientcontact');
+
 
 
 

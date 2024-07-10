@@ -19,10 +19,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                    @foreach($clients as $client)
-                    <h4 class="mb-sm-0">{{$clients->client}}Client Management</h4>
-                     @endforeach
-
+                    <h4 class="mb-sm-0">Client Management</h4>
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
@@ -88,7 +85,7 @@
                                                      $count = 1;
                                                 @endphp
 
-                                                @foreach ($clients as $client)
+                                                @foreach ($client as $client)
 
                                                 <tr>
                                                     <td>{{ $count }}</td>
