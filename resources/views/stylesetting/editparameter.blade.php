@@ -18,14 +18,18 @@
                     <button type="button" class="btn-close" data-bs-dismiss="alert" arial-label="close"></button>
                   </div>
                   @endif
-                    <form class="forms-sample" action="{{ route('updateparameter') }}" method="post>
+                    <form class="forms-sample" action="{{ route('updateparameter') }}" method="post">
                         @csrf
+                        <input type="hidden" value="{{$parameter->id}}" name="parameterid">
                         <div class="row mb-3">
                             <div class="col">
                                 <label class="form-label">Parameter</label>
                                 <input type="text" class="form-control mb-4 mb-md-0"  value="{{$parameter->parameter}}" name="parameter">
                             </div>
-
+                            <div class="col-md-6">
+                                <label class="form-label">Description</label>
+                                <input type="text" class="form-control"  value= "{{$parameter->description}}" name="description">
+                            </div>
                         </div>
                         <button type="submit" class="btn btn-primary me-2">Submit</button>
                         <button class="btn btn-light">Cancel</button>

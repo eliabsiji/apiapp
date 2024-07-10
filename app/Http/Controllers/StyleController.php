@@ -40,13 +40,18 @@ class StyleController extends Controller {
         return view( 'stylesetting.editstyles' )->with( 'style', $style );
     }
 
-    public function updatestyle( Request $request ) {
-        $reg = app_style_Model::find( $request->input( 'id' ) );
-        $reg ->style = $request->input( 'style' );
-        $reg->img = $request->input( 'img' );
-        $reg->save();
+      public function updatestyle(Request $request ){
+        app_style_Model::updateOrCreate( [
+            'user_id'=> Auth::user()->id,
+            'id'=>$request->styleid,
+        ] ,
+        [
+            'style'=>$request->style,
+            'img'=>$request->img,
 
-        return redirect( 'stylesetting.style' )->with( 'success', 'Data Updated Successfully' );
+        ]);
+
+        return redirect ()->route ( 'style' )->with( 'success', 'Data Updated Successfully' );
 
     }
 

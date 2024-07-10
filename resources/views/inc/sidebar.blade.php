@@ -49,7 +49,7 @@
                                 <a href="layouts-horizontal.html" target="_blank" class="nav-link" data-key="t-horizontal">Users</a>
                             </li>
                             <li class="nav-item">
-                                <a href="layouts-detached.html" target="_blank" class="nav-link" data-key="t-detached">Rows</a>
+                                <a href="layouts-detached.html" target="_blank" class="nav-link" data-key="t-detached">Rolls</a>
                             </li>
                             <li class="nav-item">
                                 <a href="layouts-two-column.html" target="_blank" class="nav-link" data-key="t-two-column">Permission</a>

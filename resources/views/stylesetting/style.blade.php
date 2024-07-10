@@ -72,8 +72,8 @@
                                                 </div>
                                             </th> --}}
                                             <th class="sort" data-sort="email">SN</th>
-                                            <th class="sort" data-sort="customer_name">Style Name</th>
-                                            <th class="sort" data-sort="customer_name">Style Image</th>
+                                            <th class="sort" data-sort="customer_name">Style</th>
+                                            <th class="sort" data-sort="customer_name">Image</th>
                                             <th class="sort" data-sort="email">Description</th>
                                             <th class="sort" data-sort="status">Date Created</th>
                                             <th class="sort" data-sort="action">Action</th>
@@ -136,11 +136,11 @@
                         <div class="modal-body">
 
                          <div class="mb-3">
-                          <label for="customername-field" class="form-label">Style Name</label>
+                          <label for="customername-field" class="form-label">Style</label>
                                 <input type="text" id="customername-field" name="style" class="form-control" placeholder="Enter Name" required >
                             </div>
                             <div class="mb-3">
-                                <div><label for="customername-field" class="form-label">Style Image</label></div>
+                                <div><label for="customername-field" class="form-label">Image</label></div>
                                 <input type="file"  id="email-field"  name="img" class="form-control" >
                                 {{-- <div class="input-group col-xs-12">
                                   <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">

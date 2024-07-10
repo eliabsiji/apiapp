@@ -22,6 +22,22 @@ class ClientContactController extends Controller
         $client  = app_Client_Model::find( $id );
         return view( 'client.editclientcontact' )->with( 'client', $client );
     }
+    public function updateclientcontact(Request $request ){
+        app_Client_Model::updateOrCreate( [
+            'user_id'=> Auth::user()->id,
+            'id'=>$request->clientid,
+        ] ,
+        [
+            'fullname'=>$request->fullname,
+            'email'=>$request->email,
+            'phonenumber'=>$request->phonenumber,
+            'gender'=>$request->gender,
+            'address'=>$request->address,
+        ]);
+     return redirect()->route('clientcontact')->with('success','Data updated successfully');
+
+
+   }
 
 
 }

@@ -38,12 +38,17 @@ class ParameterController extends Controller {
         return view( 'stylesetting.editparameter' )->with( 'parameter', $parameter );
     }
 
-    public function updateparameter( Request $request ) {
-        $reg =  app_parameter_Model::find( $request->input( 'id' ) );
-        $reg->parameter = $request->input( 'parameter' );
-        $reg->save();
+    public function updateparameter(Request $request){
+        app_parameter_Model::updateOrCreate([
+        'user_id'=>Auth::user()->id,
+        'id'=>$request->parameterid,
+        ],
+        [
+        'parameter'=>$request->parameter,
+        'description'=>$request->description,
+        ]);
 
-        return redirect( 'stylesetting.parameter' )->with( 'success', 'Data Updated Successfully' );
+        return redirect()->route ( 'parameter' )->with( 'success', 'Data Updated Successfully' );
 
     }
 

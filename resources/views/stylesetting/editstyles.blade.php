@@ -18,8 +18,9 @@
                     <button type="button" class="btn-close" data-bs-dismiss="alert" arial-label="close"></button>
                   </div>
                   @endif
-                    <form class="forms-sample" action="{{ route('updatestyle') }}" method="post>
+                    <form class="forms-sample" action="{{ route('updatestyle') }}" method="post">
                         @csrf
+                        <input type="hidden" value="{{$style->id}}" name="styleid">
                         <div class="row mb-3">
                             <div class="col">
                                 <label class="form-label">Style</label>
@@ -28,6 +29,7 @@
                             <div class="col-md-6">
                                 <label class="form-label">image</label>
                                 <input type="text" class="form-control"  value= "{{$style->img}}" name="img">
+                                <input type="file"  id="email-field"  name="img" class="form-control" >
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary me-2">Submit</button>

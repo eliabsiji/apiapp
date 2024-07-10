@@ -20,7 +20,7 @@
                   @endif
                     <form class="forms-sample" action="{{ route('updateclient') }}" method="post">
                         @csrf
-                        <input type="text" value="{{$client->id}}" name="clientid">
+                        <input type="hidden" value="{{$client->id}}" name="clientid">
                         <div class="row mb-3">
                             <div class="col">
                                 <label class="form-label">Full Name</label>
