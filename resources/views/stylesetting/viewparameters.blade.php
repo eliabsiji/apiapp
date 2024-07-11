@@ -39,11 +39,11 @@
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
 
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">Basic Setting</a></li>
-                            <li class="breadcrumb-item active">Style Parameter</li>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">App Manager</a></li>
+                            <li class="breadcrumb-item active">Styles Manager</li>
                         </ol>
                         <div class="page-title-right">
-                            <a href="{{route('styleparameter')}}" class="btn btn-sm btn-success edit-item-btn"><< Back</a>
+                            <a href="{{route('stylesmanager')}}" class="btn btn-sm btn-success edit-item-btn"><< Back</a>
                         </div>
                     </div>
 
@@ -72,80 +72,7 @@
 
 
             <div class="row">
-                <div class="col-lg-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row g-3">
 
-
-
-                            <div class="col-xxl-8 col-sm-8">
-
-                                <form action="{{ route('styleparameter.addstyleparameter')}}" class="tablelist-form" method="Post">
-                                    @csrf
-                                    <input type="hidden" name="userid" value="{{Auth::user()->id}}">
-                                    <input type="hidden" name="styleid" value="{{$style->id}}">
-
-                                   @foreach ($parameters as $parameter)
-
-                                   {{-- <input type="text" name="{{$parameter->id}}" value="{{$parameter->parameter}}" id=""> --}}
-                                    <!-- Inline Checkbox -->
-                                    <div class="form-check form-switch   form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox{{$parameter->id}}" id="parameter" name="parameters[]" value="{{$parameter->id}}">
-                                        <label class="form-check-label" for="inlineCheckbox{{$parameter->id}}">{{$parameter->parameter}}</label>
-
-                                      <script>
-                                        function form_atleastonechecked() {
-                                      //Loop through each checkbox in the group
-                                      for (let i = 0; i <script checkboxGroup.length; i++)
-                                      //check if the current checkbox is checked
-                                if(checkboxGroup[i].checked) {
-                                    alert("please select at least one option.")
-                                    //if any checkbox is checked, return true
-                                    return true;
-                                }
-
-                                 }
-                                  //if no checkboxes are checked, return false
-                                  return false;
-
-                              //Example usage:
-                              const checkboxGroup = document.querySelectorAll('input [name="options"]');
-                              const isValid = atLeastOneChecked(checkboxGroup);
-
-                              if(!isValid) {
-
-                              }
-
-                                  </script>
-                                    </div>
-
-                                  @endforeach
-
-
-
-
-                                        <div class="hstack gap-2 justify-content-end">
-
-                                            <button type="submit" class="btn btn-success"  onclick="form_submit()">Add Parameter</button>
-                                            {{-- <button type="button" class="btn btn-success" id="edit-btn">Update</button> --}}
-                                        </div>
-
-                                </form>
-
-
-                            </div><!--end col-->
-
-
-
-                                {{-- <div class="col-xxl-1 col-sm-6">
-                                    <button type="button" class="btn btn-secondary w-100" onclick="filterData();"><i class="bi bi-funnel align-baseline me-1"></i> Filters</button>
-                                </div><!--end col--> --}}
-                            </div><!--end row-->
-                        </div>
-                    </div>
-                </div><!--end col-->
-            </div><!--end row-->
 
 
 
@@ -171,7 +98,7 @@
                                             </th>
                                             <th class="sort cursor-pointer" data-sort="sn">SN</th>
                                             <th class="sort cursor-pointer" data-sort="paremeter">Parameter</th>
-                                            <th class="sort cursor-pointer" data-sort="dateupdated">Dated Updated</th>
+                                            <th class="sort cursor-pointer" data-sort="dateupdated">Dated updated</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>

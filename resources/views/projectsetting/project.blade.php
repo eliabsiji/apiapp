@@ -2,18 +2,19 @@
 @section('content')
 <div class="page-content">
     <div class="container-fluid">
-        @if (\Session::has('success'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>Congrats! </strong>{{ \Session::get('success') }}
+
+            @if (\Session::has('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Congrats! </strong>{{ \Session::get('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close"></button>
+            </div>
+        @endif
+        @if (\Session::has('danger'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>OOPS! </strong>{{ \Session::get('danger') }}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close"></button>
         </div>
     @endif
-    @if (\Session::has('danger'))
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>OOPS! </strong>{{ \Session::get('danger') }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close"></button>
-    </div>
-@endif
 
         <!-- start page title -->
         <div class="row">
@@ -23,9 +24,12 @@
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">Tables</a></li>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">Basic Settings</a></li>
                             <li class="breadcrumb-item active">Project-List</li>
                         </ol>
+                        <div class="page-title-right">
+                            <a href="{{route('dashboard')}}" class="btn btn-sm btn-success edit-item-btn"><< Back</a>
+                        </div>
                     </div>
 
                 </div>
@@ -46,7 +50,6 @@
                                 <div class="col-sm-auto">
                                     <div>
                                         <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#showModal"><i class="ri-add-line align-bottom me-1"></i> Add</button>
-                                        <button class="btn btn-subtle-danger" onClick="deleteMultiple()"><i class="ri-delete-bin-2-line"></i></button>
                                     </div>
                                 </div>
                                 <div class="col-sm">
@@ -61,116 +64,52 @@
 
                             <div class="table-responsive table-card mt-3 mb-1">
                                 <table class="table align-middle table-nowrap" id="customerTable">
-                                    <thead class="table-light">
+                                    {{-- <thead class="table-light">
                                         <tr>
-                                            <th scope="col" style="width: 50px;">
+                                            <th scope="col" project="width: 50px;">
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="checkbox" id="checkAll" value="option">
                                                 </div>
-                                            </th>
+                                            </th> --}}
                                             <th class="sort" data-sort="email">SN</th>
-                                            <th class="sort" data-sort="customer_project">Project Name</th>
+                                            <th class="sort" data-sort="customer_name">Project</th>
                                             <th class="sort" data-sort="email">Description</th>
+                                            <th class="sort" data-sort="customer_name">Deadline</th>
                                             <th class="sort" data-sort="status">Date Created</th>
-                                            <th class="sort" data-sort="status">Deadline</th>
                                             <th class="sort" data-sort="action">Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody class="list form-check-all">
-                                        <tr>
-                                            <th scope="row">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" name="chk_child" value="option1">
-                                                </div>
-                                            </th>
-                                            <td class="id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary">#VZ2101</a></td>
-                                            <td class="customer_name">Mary Cousar</td>
-                                            <td class="email">marycousar@Hybrix.com</td>
-                                            <td class="phone">580-464-4694</td>
-                                            <td class="date">06 Apr, 2021</td>
-                                            <td class="status"><span class="badge bg-success-subtle text-success text-uppercase">Active</span></td>
-                                            <td>
-                                                <div class="d-flex gap-2">
-                                                    <div class="edit">
-                                                        <button class="btn btn-sm btn-success edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Edit</button>
-                                                    </div>
-                                                    <div class="remove">
-                                                        <button class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">Remove</button>
-                                                    </div>
-                                                </div>
-                                            </td>
+                                </thead>
+                                <tbody>
+                                    @php
+                                         $count = 1;
+                                    @endphp
+
+                                    @foreach ($project as $project)
+
+                                    <tr>
+                                        <td>{{ $count }}</td>
+                                        <td>{{ $project->projectname }}</td>
+                                        <td>{{ $project->description }}</td>
+                                        <td>{{ $project->deadline }}</td>
+                                        <td>{{ $project->datecreated }}</td>
+                                        <td>
+                                            <div class="d-flex gap-2">
+                                            <div class="edit">
+                                                <a href="{{{ route('editproject',$project->projectid)}}}" class="btn btn-sm btn-success edit-item-btn"  data-bs-target="#showModal">Edit</a></button>
+                                            </div>
+                                            <div class="remove">
+                                                <button data-ids="1" type="button" class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">Remove</button>
+                                            </div>
+                                          </td>
                                         </tr>
-                                        <tr>
-                                            <th scope="row">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" name="chk_child" value="option1">
-                                                </div>
-                                            </th>
-                                            <td class="id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary">#VZ2101</a></td>
-                                            <td class="customer_name">Mary Cousar</td>
-                                            <td class="email">marycousar@Hybrix.com</td>
-                                            <td class="phone">580-464-4694</td>
-                                            <td class="date">06 Apr, 2021</td>
-                                            <td class="status"><span class="badge bg-success-subtle text-success text-uppercase">Active</span></td>
-                                            <td>
-                                                <div class="d-flex gap-2">
-                                                    <div class="edit">
-                                                        <button class="btn btn-sm btn-success edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Edit</button>
-                                                    </div>
-                                                    <div class="remove">
-                                                        <button class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">Remove</button>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" name="chk_child" value="option1">
-                                                </div>
-                                            </th>
-                                            <td class="id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary">#VZ2101</a></td>
-                                            <td class="customer_name">Mary Cousar</td>
-                                            <td class="email">marycousar@Hybrix.com</td>
-                                            <td class="phone">580-464-4694</td>
-                                            <td class="date">06 Apr, 2021</td>
-                                            <td class="status"><span class="badge bg-success-subtle text-success text-uppercase">Active</span></td>
-                                            <td>
-                                                <div class="d-flex gap-2">
-                                                    <div class="edit">
-                                                        <button class="btn btn-sm btn-success edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Edit</button>
-                                                    </div>
-                                                    <div class="remove">
-                                                        <button class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">Remove</button>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" name="chk_child" value="option1">
-                                                </div>
-                                            </th>
-                                            <td class="id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary">#VZ2101</a></td>
-                                            <td class="customer_name">Mary Cousar</td>
-                                            <td class="email">marycousar@Hybrix.com</td>
-                                            <td class="phone">580-464-4694</td>
-                                            <td class="date">06 Apr, 2021</td>
-                                            <td class="status"><span class="badge bg-success-subtle text-success text-uppercase">Active</span></td>
-                                            <td>
-                                                <div class="d-flex gap-2">
-                                                    <div class="edit">
-                                                        <button class="btn btn-sm btn-success edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Edit</button>
-                                                    </div>
-                                                    <div class="remove">
-                                                        <button class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">Remove</button>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                   </tr>
+                                   @php
+                                         $count++;
+                                    @endphp
+                                    @endforeach
+                                </tbody>
+                              </table>
 
                             </div>
 
@@ -189,15 +128,15 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header bg-light p-3">
-                        <h5 class="modal-title" id="exampleModalLabel">Add Project</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Add project</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
                     </div>
-                    <form action="{{ route('registerproject')}}" class="tablelist-form" method="Post">
+                    <form action="{{ route('registerproject')}}" class="tablelist-form" method="Post" >
                         @csrf
                         <div class="modal-body">
 
                          <div class="mb-3">
-                          <label for="customername-field" class="form-label">Project Name</label>
+                          <label for="customername-field" class="form-label">project</label>
                                 <input type="text" id="customername-field" name="projectname" class="form-control" placeholder="Enter Name" required >
                             </div>
 
@@ -205,16 +144,15 @@
                                 <label for="email-field" class="form-label">Description</label>
                               <textarea id="email-field" class="form-control" name="description" placeholder="The Descripction of the Project"> </textarea>
                             </div>
-
-                            <div>
-                                <label for="status-field" class="form-label">Dead-line</label>
-                                <input type="date" class="form-control" name="deadline" data-trigger  placeholder="Enter Date" required>
+                            <div class="mb-3">
+                                <label for="email-field" class="form-label">Deadline</label>
+                              <textarea id="email-field" class="form-control" name="deadline" placeholder="The Descripction of the Project"> </textarea>
                             </div>
                         </div>
                         <div class="modal-footer">
                             <div class="hstack gap-2 justify-content-end">
                                 <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-success" id="add-btn">Add Project</button>
+                                <button type="submit" class="btn btn-success" id="add-btn">Add project</button>
                                 {{-- <button type="button" class="btn btn-success" id="edit-btn">Update</button> --}}
                             </div>
                         </div>
@@ -235,12 +173,13 @@
                             <i class="bi bi-trash3 display-5 text-danger"></i>
                             <div class="mt-4 pt-2 fs-base mx-4 mx-sm-5">
                                 <h4>Are you Sure ?</h4>
+                                <input type="text" value="">
                                 <p class="text-muted mx-4 mb-0">Are you Sure You want to Remove this Record ?</p>
                             </div>
                         </div>
                         <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
                             <button type="button" class="btn w-sm btn-light" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn w-sm btn-danger " id="delete-record">Yes, Delete It!</button>
+                            <button type="button" data-id="" class="btn w-sm btn-danger " id="delete-record">Yes, Delete It!</button>
                         </div>
                     </div>
                 </div>
@@ -251,4 +190,12 @@
     </div>
     <!-- container-fluid -->
 </div>
+{{-- <script>
+  $(document).ready(function(){
+          $('.remove-item-btn').on('click', function (e){
+                      alert("ibasaiuf"):
+           });
+  });
+
+</script> --}}
 @endsection

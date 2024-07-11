@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('app_measurement_models', function (Blueprint $table) {
             $table->id();
-            $table->string('styleparameterid');
+            $table->string('client_id');
+            $table->string('styleparameter_id');
+            $table->string('parameters');
+            $table->string('measurement');
             $table->timestamps();
         });
     }

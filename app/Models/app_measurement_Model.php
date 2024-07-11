@@ -11,8 +11,10 @@ class app_measurement_Model extends Model
     protected $fillable = [
         'id',
         'user_id',
+        'client_id',
         'style_parameter_id',
+        'parameters',
         'measurement',
-        
+
     ];
 }

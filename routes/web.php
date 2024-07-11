@@ -31,6 +31,7 @@ Route::post('/addstylesparametersettings',[StyleparameterController::class, 'add
 Route::get('/editstyle/{id}',[StyleController::class, 'editstyle'])->name('editstyle');
 Route::get('/deletestyle/{id}',[StyleController::class, 'deletestyle'])->name('deletestyle');
 Route::post('/updatestyle',[StyleController::class, 'updatestyle'])->name('updatestyle');
+Route::get('/stylesmanager',[StyleController::class, 'stylesmanager'])->name('stylesmanager');
 
 
 
@@ -38,6 +39,7 @@ Route::post('/updatestyle',[StyleController::class, 'updatestyle'])->name('updat
 Route::get('/parametersettings',[ParameterController::class, 'index'])->name('parameter');
 Route::post('/createparameter',[ParameterController::class, 'saveparameter'])->name('createparameter');
 Route::get('/addparameters/{styleid}',[AddparameterController::class, 'index'])->name('addparameters');
+Route::get('/viewparameter/{styleid}',[AddparameterController::class, 'viewparameter'])->name('viewparameters');
 Route::get('/editparameter/{id}',[ParameterController::class, 'editparameter'])->name('editparameter');
 Route::get('/deleteparameter/{id}',[ParameterController::class, 'deleteparameter'])->name('deleteparameter');
 Route::post('/updateparameter',[ParameterController::class, 'updateparameter'])->name('updateparameter');
@@ -50,6 +52,7 @@ Route::get('/client',[ClientController::class, 'index'])->name('client');
 Route::get('/clientstyle/{id}',[ClientController::class, 'clientstyle'])->name('clientstyle');
 Route::post('/registerclient',[ClientController::class, 'saveclient'])->name('registerclient');
 Route::post('/measurement',[ClientController::class, 'measurement'])->name('clientmeasurement');
+Route::post('/savemeasurement',[ClientController::class, 'savemeasurement'])->name('measurement');
 Route::get('/editclient/{id}',[ClientController::class, 'editclient'])->name('editclient');
 Route::get('/deleteclient/{id}',[ClientController::class, 'deleteclient'])->name('deleteclient');
 Route::post('/updateclient',[ClientController::class, 'updateclient'])->name('updateclient');
@@ -66,8 +69,10 @@ Route::post('/updateclientcontact',[ClientContactController::class, 'updateclien
 // Project
 Route::get('/project',[ProjectController::class, 'index'])->name('project');
 Route::post('/registerproject',[ProjectController::class, 'saveproject'])->name('registerproject');
-// Route::get('/register',[ClientController::class, 'register'])->name('register');
-// Route::post('/submitregister',[ClientController::class, 'submit'])->name('submitregister');
+Route::get('/editproject/{id}',[ProjectController::class, 'editproject'])->name('editproject');
+Route::get('/deleteproject/{id}',[ProjectController::class, 'deleteproject'])->name('deleteproject');
+Route::post('/updateproject',[ProjectController::class, 'updateproject'])->name('updateproject');
+
 
 
 Auth::routes();

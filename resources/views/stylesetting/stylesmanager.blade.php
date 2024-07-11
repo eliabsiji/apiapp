@@ -19,12 +19,12 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0">Styles Manager</h4>
+                    <h4 class="mb-sm-0">Styles Management</h4>
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">App Mnager</a></li>
-                            <li class="breadcrumb-item active">Styles List</li>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">App Manager</a></li>
+                            <li class="breadcrumb-item active">Styles Manager</li>
                         </ol>
                         <div class="page-title-right">
                             <a href="{{route('dashboard')}}" class="btn btn-sm btn-success edit-item-btn"><< Back</a>
@@ -40,7 +40,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title mb-0">View, Edit & Remove</h4>
+                        <h4 class="card-title mb-0">Add, Edit & Remove</h4>
                     </div><!-- end card header -->
 
                     <div class="card-body">
@@ -99,7 +99,7 @@
                                             <td class="customer_parameter"><img src="{{ $style->img }}" alt="" class="rounded avatar-sm"> {{ $style->img }}</td>
                                             <td class="customer_parameter">
                                                 <div class="edit">
-                                                    <a href="{{route('addparameters',$style->styleid)}}" class="btn btn-sm btn-success edit-item-btn"> Parameter Mgt</a>
+                                                    <a href="{{route('viewparameters',$style->styleid)}}" class="btn btn-sm btn-success edit-item-btn">View Parameter </a>
                                                 </div>
                                             </td>
                                             <td>{{ $style->datecreated }}</td>
@@ -137,39 +137,7 @@
         <!-- end row -->
 
 
-        <div class="modal fade" id="showModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header bg-light p-3">
-                        <h5 class="modal-title" id="exampleModalLabel">Add Parameter</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
-                    </div>
-                    <form action="{{ route('registerstyleparameter')}}" class="tablelist-form" method="Post">
-                        @csrf
-                        <div class="modal-body">
 
-
-                            <div class="mb-3">
-                                <label for="customername-field" class="form-label">Style-Pararmeter</label>
-                                <input type="text" id="customername-field" name="parameter" class="form-control" placeholder="Enter Name" required >
-                            </div>
-                            <div class="mb-3">
-                                <label for="customername-field" class="form-label">Descrption</label>
-                                <textarea id="email-field" class="form-control" name="description" placeholder="The Descripction of the Project"> </textarea>
-                            </div>
-
-
-                        <div class="modal-footer">
-                            <div class="hstack gap-2 justify-content-end">
-                                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-success" id="add-btn">Add Parameter</button>
-                                {{-- <button type="button" class="btn btn-success" id="edit-btn">Update</button> --}}
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
 
         <!-- Modal -->
         <div class="modal fade zoomIn" id="deleteRecordModal" tabindex="-1" aria-hidden="true">

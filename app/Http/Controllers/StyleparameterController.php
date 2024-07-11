@@ -63,7 +63,7 @@ class StyleparameterController extends Controller
                            array_push($selected_parameters_with_name,$parameter_name);
 
                         }
-                        return back() ->with('selected','parameters already Selected')
+                        return back() ->with('selected','parameters already Assigned')
                         ->with('selected_parameters',$selected_parameters_with_name);
 
                     }

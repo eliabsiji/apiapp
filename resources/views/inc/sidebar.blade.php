@@ -98,7 +98,7 @@
                                 <a href="{{ route('client')}}" class="nav-link" data-key="t-basic-tables">Client Manager</a>
                             </li>
                             <li class="nav-item">
-                                <a href="tables-gridjs.html" class="nav-link" data-key="t-grid-js">Styles Manager</a>
+                                <a href="{{route('stylesmanager')}}" class="nav-link" data-key="t-grid-js">Styles Manager</a>
                             </li>
                             <li class="nav-item">
                                 <a href="tables-listjs.html" class="nav-link" data-key="t-list-js">All Measurement Manager</a>
