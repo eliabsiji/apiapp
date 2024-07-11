@@ -107,7 +107,7 @@
                                 <a href="{{route('clientcontact')}}" class="nav-link" data-key="t-datatables">Contacts Manager</a>
                             </li>
                             <li class="nav-item">
-                                <a href="tables-datatables.html" class="nav-link" data-key="t-datatables">Projects Manager</a>
+                                <a href="{{ route('projectmanager')}}" class="nav-link" data-key="t-datatables">Projects Manager</a>
                             </li>
                         </ul>
                     </div>

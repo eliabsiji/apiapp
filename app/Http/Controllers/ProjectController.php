@@ -53,5 +53,15 @@ class ProjectController extends Controller
         return redirect ()->route ( 'project' )->with( 'success', 'Data Updated Successfully' );
 
     }
+    public function projectmanager() {
+
+        $project = app_project_Model::where( 'user_id', Auth::user()->id )
+        ->leftjoin( 'users', 'app_project_models.user_id', '=', 'users.id' )
+        ->get( [ 'users.id as id', 'app_project_models.projectname as projectname', 'app_project_models.id as projectid',
+        'app_project_models.description as description', 'app_project_models.deadline as deadline',
+        'app_project_models.created_at as datecreated' ] );
+        return view( 'projectsetting.projectmanager' )->with( 'project', $project );
+
+    }
 
 }

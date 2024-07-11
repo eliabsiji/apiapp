@@ -72,6 +72,7 @@ Route::post('/registerproject',[ProjectController::class, 'saveproject'])->name(
 Route::get('/editproject/{id}',[ProjectController::class, 'editproject'])->name('editproject');
 Route::get('/deleteproject/{id}',[ProjectController::class, 'deleteproject'])->name('deleteproject');
 Route::post('/updateproject',[ProjectController::class, 'updateproject'])->name('updateproject');
+Route::get('/projectmanger',[ProjectController::class, 'projectmanager'])->name('projectmanager');
 
 
 
