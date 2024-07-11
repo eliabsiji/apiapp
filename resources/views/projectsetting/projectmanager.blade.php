@@ -47,7 +47,7 @@
                     <div class="card-body">
                         <div id="customerList">
                             <div class="row g-4 mb-3">
-                             
+
                                 </div>
                                 <div class="col-sm">
                                     <div class="d-flex justify-content-sm-end">
@@ -72,6 +72,7 @@
                                             <th class="sort" data-sort="customer_name">Project</th>
                                             <th class="sort" data-sort="email">Description</th>
                                             <th class="sort" data-sort="customer_name">Deadline</th>
+                                            <th class="sort" data-sort="customer_name">Style</th>
                                             <th class="sort" data-sort="status">Date Created</th>
                                             <th class="sort" data-sort="action">Action</th>
                                         </tr>
@@ -89,6 +90,7 @@
                                         <td>{{ $project->projectname }}</td>
                                         <td>{{ $project->description }}</td>
                                         <td>{{ $project->deadline }}</td>
+                                        <td><a href="#" class="btn btn-success">Select Style</a></td>
                                         <td>{{ $project->datecreated }}</td>
                                         <td>
                                             <div class="d-flex gap-2">
