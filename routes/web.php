@@ -68,6 +68,7 @@ Route::post('/updateclientcontact',[ClientContactController::class, 'updateclien
 
 // Project
 Route::get('/project',[ProjectController::class, 'index'])->name('project');
+Route::get('/projectstyle/{id}',[ProjectController::class, 'projectstyle'])->name('projectstyle');
 Route::post('/registerproject',[ProjectController::class, 'saveproject'])->name('registerproject');
 Route::get('/editproject/{id}',[ProjectController::class, 'editproject'])->name('editproject');
 Route::get('/deleteproject/{id}',[ProjectController::class, 'deleteproject'])->name('deleteproject');

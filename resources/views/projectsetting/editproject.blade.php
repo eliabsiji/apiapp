@@ -9,7 +9,7 @@
                     <h6 class="card-title">Update project</h6>
                     <p class="text-muted mb-3">Welcome to project Update Page</p>
                     <ul class="nav navbar-nav navbar-right" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
-                        <li><a href="{{ route('project')}}"  class="btn btn-success text-right"><i class="fa fa-sign-out"></i><<  Back</a></li>
+                        <li><a href="{{ route('projectmanager')}}"  class="btn btn-success text-right"><i class="fa fa-sign-out"></i><<  Back</a></li>
                     </ul>
                     @if (\Session::has('success'))
                   <div class="alert-success alert-dismissible fade show" role="alert">

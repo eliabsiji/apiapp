@@ -90,6 +90,7 @@
 </div>
 </div>
 
+
 <script>
 
 function update(){
@@ -119,6 +120,7 @@ document.getElementById("length2").value= newLength;
 
 }
 </script>
+
 
 <!-- Button trigger modal -->
 
