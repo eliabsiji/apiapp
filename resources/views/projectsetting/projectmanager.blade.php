@@ -47,7 +47,11 @@
                     <div class="card-body">
                         <div id="customerList">
                             <div class="row g-4 mb-3">
+                                <div class="col-sm-auto">
+                                    <div>
+                                        <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#showModal"><i class="ri-add-line align-bottom me-1"></i> Add Client</button>
 
+                                    </div>
                                 </div>
                                 <div class="col-sm">
                                     <div class="d-flex justify-content-sm-end">
@@ -120,7 +124,59 @@
             </div>
             <!-- end col -->
         </div>
-        <!-- end row -->
+
+        <div class="modal fade" id="showModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-`                                                        dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header bg-light p-3">
+                        <h5 class="modal-title" id="exampleModalLabel">Add Client</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
+                    </div>
+                    <form action="{{ route('registerclient')}}" class="tablelist-form" method="Post">
+                        @csrf
+                        <div class="modal-body">
+
+
+                            <div class="mb-3">
+                                <label for="customername-field" class="form-label">Full Name</label>
+                                <input type="text" id="fullname" name="fullname" class="form-control" placeholder="Enter Name" required >
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="email-field" class="form-label">Email</label>
+                                <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email" required >
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="phone-field" class="form-label">Phone</label>
+                                <input type="number"  id="phonenumber"  name="phonenumber" class="form-control" placeholder="Enter Phone no." required >
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="date-field" class="form-label">Address</label>
+                                <input type="text" id="address" name="address" class="form-control" placeholder="Enter Address" required >
+                            </div>
+
+                            <div>
+                                <label for="status-field" class="form-label">Gender</label>
+                                <select class="form-control" data-trigger name="gender" id="gender" required>
+                                    <option>Please Select </option>
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="hstack gap-2 justify-content-end">
+                                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-success" id="add-btn" onclick="form_submit()">Add Client</button>
+                                {{-- <button type="button" class="btn btn-success" id="edit-btn">Update</button> --}}
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
 
 
 
@@ -136,13 +192,12 @@
                             <i class="bi bi-trash3 display-5 text-danger"></i>
                             <div class="mt-4 pt-2 fs-base mx-4 mx-sm-5">
                                 <h4>Are you Sure ?</h4>
-                                <input type="text" value="">
                                 <p class="text-muted mx-4 mb-0">Are you Sure You want to Remove this Record ?</p>
                             </div>
                         </div>
                         <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
                             <button type="button" class="btn w-sm btn-light" data-bs-dismiss="modal">Close</button>
-                            <button type="button" data-id="" class="btn w-sm btn-danger " id="delete-record">Yes, Delete It!</button>
+                            <button type="button" class="btn w-sm btn-danger " id="delete">Yes, Delete It!</button>
                         </div>
                     </div>
                 </div>
@@ -153,12 +208,46 @@
     </div>
     <!-- container-fluid -->
 </div>
-{{-- <script>
-  $(document).ready(function(){
-          $('.remove-item-btn').on('click', function (e){
-                      alert("ibasaiuf"):
-           });
-  });
+<script type="text/javascript">
+    function form_submit() {
+        var fn = document.getElementById("fullname").value;
+        var em = document.getElementById("email").value;
+        var ph = document.getElementById("phonenumber").value;
+        var gr = document.getElementById("gender").value;
+        var ad = document.getElementById("address").value;
 
-</script> --}}
+        if (fn == "") {
+            alert("Enter Client's full name");
+            return false;
+            }
+
+
+        if (em == "") {
+            alert("Enter Client's email");
+            return false;
+            }
+
+        if (ph == "") {
+        alert("Enter Client's phonenumber");
+        return false;
+        }
+
+        if (gr == "") {
+        alert("Enter Client's gender");
+        return false;
+        }
+
+        if (ad == "") {
+        alert("Enter Client's address");
+        return false;
+        }
+        if (!(ph.length > 10) || !(ph.length <= 12)) {
+
+            alert("phone number must be 11 digits");
+            return false;
+        }
+
+          document.getElementById("save_form").submit();
+     }
+    </script>
 @endsection
