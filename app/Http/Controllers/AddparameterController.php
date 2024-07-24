@@ -22,6 +22,7 @@ class AddparameterController extends Controller
         $parameter = app_parameter_Model::where('user_id',Auth::user()->id)->get();
         $styleparameter = app_style_parameter_Model::where('app_styleparameter_models.user_id',Auth::user()->id)
                                     ->leftjoin('app_style_models','app_style_models.id','=','app_styleparameter_models.styleid')
+                                    ->where('app_style_models.id',$styleid)
                                     ->leftjoin('app_parameter_models','app_parameter_models.id','=','app_styleparameter_models.parameterid')
                                     ->leftjoin('users','users.id','=','app_styleparameter_models.user_id')
                     ->get(['users.id as id','app_style_models.style as style',
@@ -43,6 +44,7 @@ class AddparameterController extends Controller
                                     ->leftjoin('app_style_models','app_style_models.id','=','app_styleparameter_models.styleid')
                                     ->leftjoin('app_parameter_models','app_parameter_models.id','=','app_styleparameter_models.parameterid')
                                     ->leftjoin('users','users.id','=','app_styleparameter_models.user_id')
+                                    ->where('app_style_models.id',$styleid)
                     ->get(['users.id as id','app_style_models.style as style',
                             'app_parameter_models.parameter as parameter',
                             'app_styleparameter_models.parameterid as ',

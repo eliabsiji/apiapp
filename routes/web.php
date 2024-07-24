@@ -51,7 +51,7 @@ Route::post('/registerparameter',[StyleParameterController::class, 'savestylepar
 Route::get('/client',[ClientController::class, 'index'])->name('client');
 Route::get('/clientstyle/{id}',[ClientController::class, 'clientstyle'])->name('clientstyle');
 Route::post('/registerclient',[ClientController::class, 'saveclient'])->name('registerclient');
-Route::post('/measurement',[ClientController::class, 'measurement'])->name('clientmeasurement');
+Route::get('/measurement/{clientid}/{styleparameterid}/{styleid}',[ClientController::class, 'measurement'])->name('clientmeasurement');
 Route::post('/savemeasurement',[ClientController::class, 'savemeasurement'])->name('measurement');
 Route::get('/editclient/{id}',[ClientController::class, 'editclient'])->name('editclient');
 Route::get('/deleteclient/{id}',[ClientController::class, 'deleteclient'])->name('deleteclient');

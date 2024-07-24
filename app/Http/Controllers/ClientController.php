@@ -5,8 +5,11 @@ use App\Models\User;
 use App\Models\StyleModel;
 use App\Models\app_style_Model;
 use App\Models\app_Client_Model;
+use App\Models\app_style_parameter_Model;
+use App\Models\app_parameter_Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ClientController extends Controller {
 
@@ -74,7 +77,7 @@ class ClientController extends Controller {
         'app_client_models.phonenumber as phonenumber' ] );
         $style = app_style_Model::where( 'user_id', Auth::user()->id )
         ->leftjoin( 'users', 'app_style_models.user_id', '=', 'users.id' )
-        ->get( [ 'users.id as id', 'app_style_models.style as style', 'app_style_models.img as img',
+        ->get( [ 'users.id as id','app_style_models.id as styleid', 'app_style_models.style as style', 'app_style_models.img as img',
         'app_style_models.description as description',
         'app_style_models.created_at as datecreated' ] );
         return view( 'client.clientstyle' )->with( 'style', $style )
@@ -82,7 +85,29 @@ class ClientController extends Controller {
 
     }
 
-    public function measurement() {
+    public function measurement($clientid,$styleparameterid,$styleid) {
 
+        $table_col_no = app_style_parameter_Model::where('app_styleparameter_models.user_id',Auth::user()->id)
+        ->where('styleid',$styleid)
+        ->leftjoin('app_style_models','app_style_models.id','=','app_styleparameter_models.styleid')
+        ->leftjoin('app_parameter_models','app_parameter_models.id','=','app_styleparameter_models.parameterid')
+        ->get(['app_parameter_models.parameter','app_style_models.style as style']);
+        foreach ($table_col_no as $col => $value) {
+           $query = "ALTER TABLE app_measurement_models ADD ".$value->style."_".$value->parameter." varchar(255)";
+
+           try{
+            DB::statement($query);
+           }catch(\Illuminate\Database\QueryException $e){
+                echo $e->getMessage();
+           }
+        }
+        $client = app_Client_Model::where( 'app_client_models.id', $clientid )->get();
+        $no_fields = app_style_parameter_Model::where('app_styleparameter_models.user_id',Auth::user()->id)
+                    ->where('styleid',$styleid)
+                    ->leftjoin('app_parameter_models','app_parameter_models.id','=','app_styleparameter_models.parameterid')
+                    ->get(['app_parameter_models.parameter']);
+
+        return view('client.clientmeasurement')->with('client',$client)
+                        ->with('no_fields',$no_fields);
     }
 }
