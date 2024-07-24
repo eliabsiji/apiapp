@@ -1,25 +1,32 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DashboardController;
 use App\Http\controllers\StyleController;
 use App\Http\controllers\ClientController;
-use App\Http\controllers\StyleparameterController;
+use App\Http\controllers\projectController;
+use App\Http\Controllers\DashboardController;
 use App\Http\controllers\ParameterController;
 use App\Http\controllers\AddparameterController;
-use App\Http\controllers\projectController;
 use App\Http\controllers\ClientContactController;
+use App\Http\controllers\StyleparameterController;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 
-
-
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/home', function () {
+    return view('home');
+});
+Route::get('/contactus', function () {
+    return view('home_inc.contact-us');
 });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 
 Route::get('/dashboard',[DashboardController::class, 'index'])->name('dashboard');
 
@@ -56,6 +63,7 @@ Route::post('/savemeasurement',[ClientController::class, 'savemeasurement'])->na
 Route::get('/editclient/{id}',[ClientController::class, 'editclient'])->name('editclient');
 Route::get('/deleteclient/{id}',[ClientController::class, 'deleteclient'])->name('deleteclient');
 Route::post('/updateclient',[ClientController::class, 'updateclient'])->name('updateclient');
+Route::get('/logout', [DashboardController::class, 'logout']);
 
 //Clients Contact
 Route::get('/contact',[ClientContactController::class, 'index'])->name('clientcontact');

@@ -32,7 +32,14 @@
     <link href=" {{ asset('steex/layouts/assets/css/app.min.css')}}" rel="stylesheet" type="text/css">
     <!-- custom Css-->
     <link href=" {{ asset('steex/layouts/assets/css/custom.min.css')}}" rel="stylesheet" type="text/css">
-
+<style>
+    span.dash_logo{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 25px;
+        font-weight: 600;
+        color: white;
+    }
+</style>
 </head>
 
 <body>

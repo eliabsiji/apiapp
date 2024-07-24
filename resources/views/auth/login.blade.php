@@ -1,4 +1,75 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+    <title>Login</title>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playwrite+BE+VLG:wght@100..400&family=Playwrite+NO:wght@100..400&display=swap');
+     
+.playwrite-no-logo_name {
+  font-family: "Playwrite NO", cursive;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 30px;
+  display: block;
+}
+div.divider{
+    position: relative;
+    width: 100%;
+    height: 1px;
+    background-color: rgb(202, 202, 202);
+    margin-bottom: 30px;
+}
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="form_body">
+            <div class="form_header">
+                <span class="playwrite-no-logo_name">Fashion Hub</span>
+            </div>
+                <div class="divider"></div>
+           <form action="{{ route('login') }}" method="post">
+            @csrf
+            <label for="email">Email</label>
+            <input id="email" class="form-control @error('email') is-invalid @enderror" type="email" name="email"  value="{{ old('email') }}" required autocomplete="email" autofocus>
+
+            <label for="password">Password</label>
+            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+         
+          <button type="submit">Login</button>
+
+          @if (Route::has('password.request'))
+          <a class="btn btn-link" href="{{ route('password.request') }}">
+              {{ __('Forgot Your Password?') }}
+          </a>
+      @endif
+      <a href="/home">Go Back</a>
+        </form>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{-- @extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -70,4 +141,4 @@
         </div>
     </div>
 </div>
-@endsection
+@endsection --}}

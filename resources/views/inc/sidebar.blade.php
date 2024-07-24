@@ -3,19 +3,19 @@
     <!-- LOGO -->
     <div class="navbar-brand-box">
         <a href="index.html" class="logo logo-dark">
-            <span class="logo-sm">
+            {{-- <span class="logo-sm">
                 <img src="{{ asset('steex/layouts/assets/images/logo-sm.png')}}" alt="" height="22">
-            </span>
-            <span class="logo-lg">
+            </span> --}}
+            {{-- <span class="logo-lg">
                 <img src="{{ asset('steex/layouts/assets/images/logo-dark.png')}}" alt="" height="22">
-            </span>
+            </span> --}}
         </a>
         <a href="index.html" class="logo logo-light">
-            <span class="logo-sm">
+            {{-- <span class="logo-sm">
                 <img src="{{ asset('steex/layouts/assets/images/logo-sm.png')}}" alt="" height="22">
-            </span>
+            </span> --}}
             <span class="logo-lg">
-                <img src="{{ asset('steex/layouts/assets/images/logo-light.png')}}" alt="" height="22">
+                <span class="dash_logo">Fashion Hub</span>
             </span>
         </a>
         <button type="button" class="btn btn-sm p-0 fs-3xl header-item float-end btn-vertical-sm-hover" id="vertical-hover">
@@ -38,7 +38,7 @@
                 </li>
 
 
-                <li class="menu-title"><span data-key="t-menu">Users & Previlages</span></li>
+                {{-- <li class="menu-title"><span data-key="t-menu">Users & Previlages</span></li>
                 <li class="nav-item">
                     <a class="nav-link menu-link collapsed" href="#sidebarLayouts" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarLayouts">
                         <i class="ph-layout"></i> <span data-key="t-layouts">Users Previlage & Permission</span>
@@ -56,7 +56,7 @@
                             </li>
                         </ul>
                     </div>
-                </li>
+                </li> --}}
 
 
 
@@ -153,6 +153,30 @@
                         </ul>
                     </div>
                 </li>
+
+                <li class="nav-item">
+                    <a href="/logout" class="nav-link" data-key="t-leaflet">Logout</a>
+                </li>
+                
+                {{-- <li class="menu-title"><span data-key="t-menu"></span></li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link collapsed" href="#sidebarMaps" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarMaps">
+                        <i class="ph-map-trifold"></i> <span data-key="t-maps"></span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarMaps">
+                        <ul class="nav nav-sm flex-column">
+                            {{-- <li class="nav-item">
+                                <a href="maps-google.html" class="nav-link" data-key="t-google">Order</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="maps-vector.html" class="nav-link" data-key="t-vector">Sales</a>
+                            </li> --}}
+                            {{-- <li class="nav-item">
+                                <a href="maps-leaflet.html" class="nav-link" data-key="t-leaflet">Logout</a>
+                            </li> --}}
+                        {{-- </ul>
+                    </div>
+                </li> --}}
 
                                             </div>
                                         </li>
